@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Card from "../components/Card";
 import logo from "../images/logo.svg";
 import "./App.css";
 
@@ -15,6 +16,9 @@ class App extends Component {
           </h1>
         </header>
         <p className="App-intro">Default User Profile</p>
+        <div className="container">
+          <Card />
+        </div>
       </div>
     );
   }
