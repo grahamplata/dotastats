@@ -13,12 +13,13 @@ const styles = {
     background: "black",
     color: "white",
     textAlign: "center",
-    height: "150px",
+    height: "175px",
     padding: "20px"
   },
   appTitle: { fontSize: "1.5em" },
   container: {
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
   }
@@ -47,6 +48,7 @@ class App extends Component {
           <p>A place for dota stats</p>
         </header>
         <div style={styles.container}>
+          <Card />
           <Card />
         </div>
       </div>

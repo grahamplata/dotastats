@@ -1,35 +1,37 @@
 import React, { Component } from "react";
 
+let imgUrl =
+  "http://cdn.dota2.com/apps/dota2/blog/spring_cleaning_2018_blog.jpg";
+
 const styles = {
   card: {
-    maxWidth: "350px",
-    borderWidth: "1px",
-    borderStyle: "solid",
-    alignItems: "stretch",
-    justifyContent: "left",
-    backgroundColor: "#ecf0f1"
+    display: "flex",
+    borderRadius: "15px",
+    marginTop: 15,
+    backgroundImage:
+      "linear-gradient(to bottom, rgba(0,180,219, 0.8), rgba(0,131,200, 0.8)), url(" +
+      imgUrl +
+      ")",
+    overflow: "hidden",
+    width: "550px",
+    height: "250px",
+    paddingLeft: "15px",
+    paddingRight: "15px"
   },
-  image: {
-    flexGrow: 1,
-    height: null,
-    width: "100%",
-    opacity: "40%",
-    background: ["linear-gradient(90deg, black, #111)", "black"]
-  },
-  spanTitle: {
-    margin: 24,
-    fontSize: 48,
-    fontWeight: "bold",
-    backgroundColor: "transparent"
+  content: {
+    color: "white"
   }
 };
 
 class Card extends Component {
   render() {
     return (
-      <div style={styles.card}>
-        <img src={"http://via.placeholder.com/450x250"} style={styles.image} />
-        <h2 style={styles.spanTitle}>Leica</h2>
+      <div>
+        <div style={styles.card}>
+          <div style={styles.content}>
+            <h2>Graham</h2>
+          </div>
+        </div>
       </div>
     );
   }
