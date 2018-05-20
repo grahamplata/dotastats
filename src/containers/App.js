@@ -49,7 +49,6 @@ class App extends Component {
         </header>
         <div style={styles.container}>
           <Card />
-          <Card />
         </div>
       </div>
     );
