@@ -21,9 +21,7 @@ class Card extends Component {
               </div>
             </div>
             <div style={styles.hero}>
-              <p>
-                <i className="d2mh hero-1" />Anti-Mage
-              </p>
+              <p>12/16/2018</p>
             </div>
           </div>
           <div style={styles.row}>
@@ -38,11 +36,13 @@ class Card extends Component {
             </div>
             <div style={{ fontWeight: "bold" }}>
               <p>SOLO MMR: 3915</p>
-              <p>
-                <i className="d2mh hero-1" />
-                <i className="d2mh hero-5" />
-                <i className="d2mh hero-10" />
-              </p>
+              <div>
+                <p>
+                  <i className="d2mh hero-1" />
+                  <i className="d2mh hero-5" />
+                  <i className="d2mh hero-10" />
+                </p>
+              </div>
             </div>
           </div>
           <div style={styles.row}>
