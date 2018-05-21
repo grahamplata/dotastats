@@ -32,7 +32,7 @@ class Card extends Component {
               <p>
                 Losses: <a style={{ color: "rgb(255, 76, 76)" }}>1768</a>
               </p>
-              <p>Winrate: 47.66%</p>
+              <p>Winrate: <a style={{ color: "rgb(229, 193, 0)" }}>47.66%</a></p>
             </div>
             <div style={{ fontWeight: "bold" }}>
               <p>SOLO MMR: 3915</p>
