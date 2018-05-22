@@ -1,14 +1,24 @@
 import React, { Component } from "react";
-import badge from "../../images/rank_icon_5.png";
-import rank from "../../images/rank_star_5.png";
+import rank1 from "../../images/rank_icon_1.png";
+import rank2 from "../../images/rank_icon_2.png";
+import rank3 from "../../images/rank_icon_3.png";
+import rank4 from "../../images/rank_icon_4.png";
+import rank5 from "../../images/rank_icon_5.png";
+import rank6 from "../../images/rank_icon_6.png";
+import rank7 from "../../images/rank_icon_7.png";
+import star1 from "../../images/rank_star_1.png";
+import star2 from "../../images/rank_star_2.png";
+import star3 from "../../images/rank_star_3.png";
+import star4 from "../../images/rank_star_4.png";
+import star5 from "../../images/rank_star_5.png";
 
 class Ranking extends Component {
   render() {
     return (
       <div style={styles.hero}>
         <div style={{ paddingTop: 15 }}>
-          <img src={badge} style={styles.ranking} alt="" />
-          <img src={rank} style={styles.stars} alt="" />
+          <img src={star5} style={styles.ranking} alt="ranking" />
+          <img src={rank7} style={styles.stars} alt="stars" />
         </div>
       </div>
     );
