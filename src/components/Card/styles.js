@@ -1,38 +1,7 @@
-import React, { Component } from "react";
-import Heroes from "../Heroes";
-import Stats from "../Stats";
-import Ranking from "../Ranking";
-import UserProfile from "../UserProfile";
-import CardFooter from "../CardFooter";
-
 let imgUrl =
   "https://steamcommunity-a.akamaihd.net/economy/image/W_I_5GLm4wPcv9jJQ7z7tz_l_0sEIYUhRfbF4arNQkgGQGKd3kMuVpY7Dw1D7xi1ZUKC0ulDeazXAwk8JZ3tR1e4JpKByUilUt5ARcdmK2oc0ra01wtFAT_SUbMTWdV6upKV1Vi_WQKULzA0yt8CgfKdg8HWXPPWrhvkJVAmgrVuE9xNzMhKFD2b/490fx326f";
 
-class Card extends Component {
-  render() {
-    return (
-      <div style={styles.card}>
-        <div style={styles.columns}>
-          <div style={styles.playerRow}>
-            <UserProfile />
-            <Ranking />
-          </div>
-          <div style={styles.statsrow}>
-            <Heroes />
-            <Stats />
-          </div>
-          <div style={styles.row}>
-            <CardFooter />
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default Card;
-
-const styles = {
+export default styles = {
   card: {
     display: "flex",
     borderRadius: "10px",
@@ -52,7 +21,9 @@ const styles = {
     display: "flex",
     color: "white",
     flexDirection: "column",
-    width: "100%"
+    width: "100%",
+    paddingLeft: "10px",
+    paddingRight: "10px"
   },
   row: {
     display: "flex",

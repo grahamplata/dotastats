@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Heroes extends Component {
   render() {
     return (
-      <div>
+      <div style={{ fontWeight: "bold" }}>
         <p>SOLO MMR: 3915</p>
         <div>
           <i className="d2mh hero-1" />
