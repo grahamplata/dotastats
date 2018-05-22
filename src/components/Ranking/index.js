@@ -12,13 +12,18 @@ import star3 from "../../images/rank_star_3.png";
 import star4 from "../../images/rank_star_4.png";
 import star5 from "../../images/rank_star_5.png";
 
+const stars = [star1, star2, star3, star4, star5];
+const ranks = [rank1, rank2, rank3, rank4, rank5, rank6, rank7];
+const randomRank = Math.floor(Math.random() * 6);
+const randomStar = Math.floor(Math.random() * 5);
+
 class Ranking extends Component {
   render() {
     return (
       <div style={styles.hero}>
         <div style={{ paddingTop: 15 }}>
-          <img src={star5} style={styles.ranking} alt="ranking" />
-          <img src={rank7} style={styles.stars} alt="stars" />
+          <img src={stars[randomStar]} style={styles.ranking} alt="ranking" />
+          <img src={ranks[randomRank]} style={styles.stars} alt="stars" />
         </div>
       </div>
     );
