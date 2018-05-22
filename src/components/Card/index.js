@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import badge from "../../images/rank_icon_5.png";
+import rank from "../../images/rank_star_5.png";
 
 let imgUrl =
   "https://steamcommunity-a.akamaihd.net/economy/image/W_I_5GLm4wPcv9jJQ7z7tz_l_0sEIYUhRfbF4arNQkgGQGKd3kMuVpY7Dw1D7xi1ZUKC0ulDeazXAwk8JZ3tR1e4JpKByUilUt5ARcdmK2oc0ra01wtFAT_SUbMTWdV6upKV1Vi_WQKULzA0yt8CgfKdg8HWXPPWrhvkJVAmgrVuE9xNzMhKFD2b/490fx326f";
@@ -21,10 +23,23 @@ class Card extends Component {
               </div>
             </div>
             <div style={styles.hero}>
-              <p>12/16/2018</p>
+              <div style={{ paddingTop: 15 }}>
+                <img src={badge} style={styles.ranking} />
+                <img src={rank} style={styles.stars} />
+              </div>
             </div>
           </div>
-          <div style={styles.row}>
+          <div style={styles.statsrow}>
+            <div style={{ fontWeight: "bold" }}>
+              <p>SOLO MMR: 3915</p>
+              <div>
+                <p>
+                  <i className="d2mh hero-1" />
+                  <i className="d2mh hero-7" />
+                  <i className="d2mh hero-35" />
+                </p>
+              </div>
+            </div>
             <div style={{ fontWeight: "bold" }}>
               <p>
                 Wins: <a style={{ color: "rgb(102, 187, 106)" }}>1610</a>
@@ -32,21 +47,15 @@ class Card extends Component {
               <p>
                 Losses: <a style={{ color: "rgb(255, 76, 76)" }}>1768</a>
               </p>
-              <p>Winrate: <a style={{ color: "rgb(229, 193, 0)" }}>47.66%</a></p>
-            </div>
-            <div style={{ fontWeight: "bold" }}>
-              <p>SOLO MMR: 3915</p>
-              <div>
-                <p>
-                  <i className="d2mh hero-1" />
-                  <i className="d2mh hero-5" />
-                  <i className="d2mh hero-10" />
-                </p>
-              </div>
+              <p>
+                Winrate: <a style={{ color: "rgb(229, 193, 0)" }}>47.66%</a>
+              </p>
             </div>
           </div>
           <div style={styles.row}>
-            <p>Open source Dota 2 data platform - powered by</p>
+            <p style={{ opacity: "0.6" }}>
+              <small>Stats provided by OpenDota</small>
+            </p>
           </div>
         </div>
       </div>
@@ -88,6 +97,12 @@ const styles = {
     alignItems: "center",
     justifyContent: "space-around"
   },
+  statsrow: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
   playerRow: {
     display: "flex",
     flexDirection: "row",
@@ -113,5 +128,14 @@ const styles = {
     borderRadius: "50%",
     maxWidth: "55px",
     boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
+  },
+  ranking: {
+    position: "absolute",
+    maxWidth: "80px",
+    zIndex: "1"
+  },
+  stars: {
+    maxWidth: "80px",
+    zIndex: "3"
   }
 };
