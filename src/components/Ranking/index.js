@@ -2,16 +2,13 @@ import React, { Component } from "react";
 import badge from "../../images/rank_icon_5.png";
 import rank from "../../images/rank_star_5.png";
 
-let imgUrl =
-  "https://steamcommunity-a.akamaihd.net/economy/image/W_I_5GLm4wPcv9jJQ7z7tz_l_0sEIYUhRfbF4arNQkgGQGKd3kMuVpY7Dw1D7xi1ZUKC0ulDeazXAwk8JZ3tR1e4JpKByUilUt5ARcdmK2oc0ra01wtFAT_SUbMTWdV6upKV1Vi_WQKULzA0yt8CgfKdg8HWXPPWrhvkJVAmgrVuE9xNzMhKFD2b/490fx326f";
-
 class Ranking extends Component {
   render() {
     return (
       <div style={styles.hero}>
         <div style={{ paddingTop: 15 }}>
-          <img src={badge} style={styles.ranking} />
-          <img src={rank} style={styles.stars} />
+          <img src={badge} style={styles.ranking} alt="" />
+          <img src={rank} style={styles.stars} alt="" />
         </div>
       </div>
     );

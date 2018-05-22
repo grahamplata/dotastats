@@ -7,7 +7,7 @@ class UserProfile extends Component {
   render() {
     return (
       <div style={styles.playerRow}>
-        <img style={styles.profile} src={profileUrl} />
+        <img style={styles.profile} src={profileUrl} alt="" />
         <div style={{ paddingLeft: 5 }}>
           <h3>Leica</h3>
         </div>

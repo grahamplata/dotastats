@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const CardFooter = props => (
   <p style={{ opacity: "0.6" }}>
