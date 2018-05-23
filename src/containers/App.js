@@ -14,7 +14,8 @@ const styles = {
     color: "white",
     textAlign: "center",
     height: "175px",
-    padding: "20px"
+    padding: "20px",
+    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
   },
   appTitle: { fontSize: "1.5em" },
   container: {

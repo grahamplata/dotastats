@@ -47,11 +47,11 @@ const styles = {
     borderRadius: "10px",
     marginTop: 15,
     backgroundImage:
-      "linear-gradient(to top, rgba(0,180,219, 0.9), rgba(0,131,200, 0.6)), url(" +
+      "linear-gradient(to top, rgba(0,180,219, 1), rgba(0,131,200, 0.6)), url(" +
       imgUrl +
       ")",
     overflow: "hidden",
-    width: "450px",
+    width: "350px",
     height: "200px",
     paddingLeft: "15px",
     paddingRight: "15px",
