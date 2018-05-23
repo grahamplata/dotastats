@@ -7,6 +7,15 @@ import CardFooter from "../CardFooter";
 
 let imgUrl =
   "https://steamcommunity-a.akamaihd.net/economy/image/W_I_5GLm4wPcv9jJQ7z7tz_l_0sEIYUhRfbF4arNQkgGQGKd3kMuVpY7Dw1D7xi1ZUKC0ulDeazXAwk8JZ3tR1e4JpKByUilUt5ARcdmK2oc0ra01wtFAT_SUbMTWdV6upKV1Vi_WQKULzA0yt8CgfKdg8HWXPPWrhvkJVAmgrVuE9xNzMhKFD2b/490fx326f";
+let profileUrl =
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Leica_Camera_logo.svg/2000px-Leica_Camera_logo.svg.png";
+const randomMMR = Math.floor(Math.random() * 7000);
+const randomHero1 = Math.floor(Math.random() * 115);
+const randomHero2 = Math.floor(Math.random() * 115);
+const randomHero3 = Math.floor(Math.random() * 115);
+const wins = Math.floor(Math.random() * 1000);
+const losses = Math.floor(Math.random() * 1000);
+let heroes = [randomHero1, randomHero2, randomHero3];
 
 class Card extends Component {
   render() {
@@ -14,12 +23,12 @@ class Card extends Component {
       <div style={styles.card}>
         <div style={styles.columns}>
           <div style={styles.playerRow}>
-            <UserProfile />
+            <UserProfile profile={profileUrl} />
             <Ranking />
           </div>
           <div style={styles.statsrow}>
-            <Heroes />
-            <Stats />
+            <Heroes mmr={randomMMR} heroes={heroes} />
+            <Stats wins={wins} losses={losses} />
           </div>
           <div style={styles.row}>
             <CardFooter />

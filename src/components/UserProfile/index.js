@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 
-let profileUrl =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Leica_Camera_logo.svg/2000px-Leica_Camera_logo.svg.png";
-
 class UserProfile extends Component {
   render() {
     return (
       <div style={styles.playerRow}>
-        <img style={styles.profile} src={profileUrl} alt="" />
+        <img style={styles.profile} src={this.props.profile} alt="" />
         <div style={{ paddingLeft: 5 }}>
           <h3>Leica</h3>
         </div>
