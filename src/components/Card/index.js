@@ -5,16 +5,16 @@ import Ranking from "../Ranking";
 import UserProfile from "../UserProfile";
 import CardFooter from "../CardFooter";
 
-let imgUrl =
-  "https://steamcommunity-a.akamaihd.net/economy/image/W_I_5GLm4wPcv9jJQ7z7tz_l_0sEIYUhRfbF4arNQkgGQGKd3kMuVpY7Dw1D7xi1ZUKC0ulDeazXAwk8JZ3tR1e4JpKByUilUt5ARcdmK2oc0ra01wtFAT_SUbMTWdV6upKV1Vi_WQKULzA0yt8CgfKdg8HWXPPWrhvkJVAmgrVuE9xNzMhKFD2b/490fx326f";
-let profileUrl =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Leica_Camera_logo.svg/2000px-Leica_Camera_logo.svg.png";
+let imgUrl = "https://steamcommunity-a.akamaihd.net/economy/image/W_I_5GLm4wPcv9jJQ7z7tz_l_0sEIYUhRfbF4arNQkgGQGKd3kMuVpY7Dw1D7xi1ZUKC0ulDeazXAwk8JZ3tR1e4JpKByUilUt5ARcdmK2oc0ra01wtFAT_SUbMTWdV6upKV1Vi_WQKULzA0yt8CgfKdg8HWXPPWrhvkJVAmgrVuE9xNzMhKFD2b/490fx326f";
+let profileUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Leica_Camera_logo.svg/2000px-Leica_Camera_logo.svg.png";
 const randomMMR = Math.floor(Math.random() * 7000);
 const randomHero1 = Math.floor(Math.random() * 115);
 const randomHero2 = Math.floor(Math.random() * 115);
 const randomHero3 = Math.floor(Math.random() * 115);
 const wins = Math.floor(Math.random() * 1000);
 const losses = Math.floor(Math.random() * 1000);
+const randomRank = Math.floor(Math.random() * 7);
+const randomStar = Math.floor(Math.random() * 5);
 let heroes = [randomHero1, randomHero2, randomHero3];
 
 class Card extends Component {
@@ -24,7 +24,7 @@ class Card extends Component {
         <div style={styles.columns}>
           <div style={styles.playerRow}>
             <UserProfile profile={profileUrl} />
-            <Ranking />
+            <Ranking ranks={randomRank} stars={randomStar} />
           </div>
           <div style={styles.statsrow}>
             <Heroes mmr={randomMMR} heroes={heroes} />
@@ -54,7 +54,7 @@ const styles = {
     width: "350px",
     height: "200px",
     paddingLeft: "15px",
-    paddingRight: "15px",
+    paddingRight: "10px",
     boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
   },
   columns: {
