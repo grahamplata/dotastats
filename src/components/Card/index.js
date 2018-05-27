@@ -16,7 +16,6 @@ let heroes = [randomHero1, randomHero2, randomHero3];
 
 class Card extends Component {
   render() {
-    console.log(this.props.data);
     return (
       <div style={styles.card}>
         <div style={styles.columns}>
