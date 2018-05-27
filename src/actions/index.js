@@ -12,9 +12,9 @@ export function loadProfile() {
   };
 }
 
-export function updateProfile(profile) {
+export function updateProfile(data) {
   return {
     type: "UPDATE_PROFILE",
-    data: profile
+    data: data
   };
 }

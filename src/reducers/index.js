@@ -29,7 +29,7 @@ const mainReducer = (state = defaultState, action) => {
   if (action.type === "UPDATE_PROFILE") {
     return {
       ...state,
-      data: action.profile
+      data: action.data
     };
   } else {
     return { ...state };

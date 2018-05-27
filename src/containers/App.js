@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actionCreators from "../actions";
 import Card from "../components/Card";
 import logo from "../images/logo.svg";
 import injectStyle from "../utils/injectStyle";
@@ -49,11 +51,15 @@ class App extends Component {
           <p>A place for dota stats</p>
         </header>
         <div style={styles.container}>
-          <Card />
+          <Card data={this.props} />
         </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(mapStateToProps, actionCreators)(App);
