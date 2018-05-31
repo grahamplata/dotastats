@@ -51,7 +51,7 @@ class App extends Component {
           <p>A place for dota stats</p>
         </header>
         <div style={styles.container}>
-          <Card data={this.props} />
+          <Card handleClick={this.props.loadProfile} data={this.props.data} />
         </div>
       </div>
     );

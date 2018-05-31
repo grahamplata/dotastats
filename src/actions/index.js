@@ -14,6 +14,7 @@ export function loadProfile() {
 }
 
 export function updateProfile(data) {
+  console.log(data);
   return {
     type: "UPDATE_PROFILE",
     data: data

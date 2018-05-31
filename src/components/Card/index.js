@@ -34,6 +34,7 @@ class Card extends Component {
             <Stats wins={wins} losses={losses} />
           </div>
           <div style={styles.row}>
+            <button onClick={()=>{this.props.handleClick()}}>Reload</button>
             <CardFooter />
           </div>
         </div>
