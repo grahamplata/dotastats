@@ -7,11 +7,11 @@ import CardFooter from "../CardFooter";
 
 let imgUrl =
   "https://steamcommunity-a.akamaihd.net/economy/image/W_I_5GLm4wPcv9jJQ7z7tz_l_0sEIYUhRfbF4arNQkgGQGKd3kMuVpY7Dw1D7xi1ZUKC0ulDeazXAwk8JZ3tR1e4JpKByUilUt5ARcdmK2oc0ra01wtFAT_SUbMTWdV6upKV1Vi_WQKULzA0yt8CgfKdg8HWXPPWrhvkJVAmgrVuE9xNzMhKFD2b/490fx326f";
+let profileUrl =
+  "https://pbs.twimg.com/profile_images/807755806837850112/WSFVeFeQ_400x400.jpg";
 const randomHero1 = Math.floor(Math.random() * 115);
 const randomHero2 = Math.floor(Math.random() * 115);
 const randomHero3 = Math.floor(Math.random() * 115);
-const wins = Math.floor(Math.random() * 1000);
-const losses = Math.floor(Math.random() * 1000);
 let heroes = [randomHero1, randomHero2, randomHero3];
 
 class Card extends Component {
@@ -21,20 +21,29 @@ class Card extends Component {
         <div style={styles.columns}>
           <div style={styles.playerRow}>
             <UserProfile
-              username={this.props.data.profile.personaname}
+              username={this.props.data.profile.personaname || profileUrl}
               profile={this.props.data.profile.avatarfull}
             />
-            <Ranking ranktier={this.props.data.rank_tier} />
+            <Ranking ranktier={this.props.data.rank_tier || 11} />
           </div>
           <div style={styles.statsrow}>
             <Heroes
-              mmr={this.props.data.solo_competitive_rank}
-              heroes={heroes}
+              mmr={this.props.data.solo_competitive_rank || 0}
+              heroes={this.props.data.heroes || heroes}
             />
-            <Stats wins={wins} losses={losses} />
+            <Stats
+              wins={this.props.data.wins || 1}
+              losses={this.props.data.wins || 1}
+            />
           </div>
           <div style={styles.row}>
-            <button onClick={()=>{this.props.handleClick()}}>Reload</button>
+            <button
+              onClick={() => {
+                this.props.handleClick();
+              }}
+            >
+              Reload
+            </button>
             <CardFooter />
           </div>
         </div>
