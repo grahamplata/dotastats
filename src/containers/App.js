@@ -19,10 +19,28 @@ class App extends Component {
               ? "Dota Stats"
               : "Api Key Not Present"}
           </h1>
-          <p>A place for dota stats</p>
+          <button
+            onClick={() => {
+              this.props.loadProfile();
+            }}
+          >
+            Get Profile
+          </button>
         </header>
         <div style={styles.container}>
-          <Card handleClick={this.props.loadProfile} data={this.props.data} />
+          {this.props.profile != null ? (
+            <Card
+              data={this.props.profile}
+              winrate={this.props.winRate}
+              heroes={
+                this.props.recentMatches != null
+                  ? this.props.recentMatches
+                  : null
+              }
+            />
+          ) : (
+            <React.Fragment />
+          )}
         </div>
       </div>
     );

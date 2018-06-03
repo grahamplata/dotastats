@@ -4,9 +4,15 @@ class UserProfile extends Component {
   render() {
     return (
       <div style={styles.playerRow}>
-        <img style={styles.profile} src={this.props.profile} alt="" />
+        <a href={this.props.community}>
+          <img style={styles.profile} src={this.props.profile} alt="" />
+        </a>
         <div style={{ paddingLeft: 5 }}>
-          <h3>{this.props.username}</h3>
+          <h3>
+            <a style={styles.link} href={this.props.community}>
+              {this.props.username}
+            </a>
+          </h3>
         </div>
       </div>
     );
@@ -29,5 +35,9 @@ const styles = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between"
+  },
+  link: {
+    textDecoration: "none",
+    color: "white"
   }
 };
