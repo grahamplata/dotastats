@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Loader from "../components/Loader";
 import { connect } from "react-redux";
 import * as actionCreators from "../actions";
 import Card from "../components/Card";
@@ -34,8 +35,10 @@ class App extends Component {
               winrate={this.props.winRate}
               heroes={this.props.recentMatches}
             />
-          ) : (
+          ) : !this.props.isFetching ? (
             <React.Fragment />
+          ) : (
+            <Loader />
           )}
         </div>
       </div>
