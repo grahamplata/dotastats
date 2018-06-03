@@ -15,17 +15,29 @@ import star5 from "../../images/rank_star_5.png";
 const stars = [star1, star2, star3, star4, star5];
 const ranks = [rank1, rank2, rank3, rank4, rank5, rank6, rank7];
 
+function parseRank(rankTier) {
+  return String(rankTier).charAt(0);
+}
+
+function parseStars(rankTier) {
+  return String(rankTier).charAt(1);
+}
+
 class Ranking extends Component {
   render() {
     return (
       <div style={styles.hero}>
         <div style={{ paddingTop: 15 }}>
           <img
-            src={stars[this.props.stars]}
+            src={stars[parseRank(this.props.ranktier) - 1]}
             style={styles.ranking}
             alt="ranking"
           />
-          <img src={ranks[this.props.ranks]} style={styles.stars} alt="stars" />
+          <img
+            src={ranks[parseStars(this.props.ranktier) - 1]}
+            style={styles.stars}
+            alt="stars"
+          />
         </div>
       </div>
     );

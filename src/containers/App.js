@@ -1,37 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actionCreators from "../actions";
 import Card from "../components/Card";
 import logo from "../images/logo.svg";
 import injectStyle from "../utils/injectStyle";
-
-const styles = {
-  app: {},
-  applogo: {
-    animation: "App-logo-spin infinite 20s linear",
-    height: "80px"
-  },
-  appHeader: {
-    background: "black",
-    color: "white",
-    textAlign: "center",
-    height: "175px",
-    padding: "20px",
-    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
-  },
-  appTitle: { fontSize: "1.5em" },
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-};
-
-const keyframesStyle = `
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-`;
+import { styles, keyframesStyle } from "./styles";
 
 injectStyle(keyframesStyle);
 
@@ -46,14 +19,36 @@ class App extends Component {
               ? "Dota Stats"
               : "Api Key Not Present"}
           </h1>
-          <p>A place for dota stats</p>
+          <button
+            onClick={() => {
+              this.props.loadProfile();
+            }}
+          >
+            Get Profile
+          </button>
         </header>
         <div style={styles.container}>
-          <Card />
+          {this.props.profile != null ? (
+            <Card
+              data={this.props.profile}
+              winrate={this.props.winRate}
+              heroes={
+                this.props.recentMatches != null
+                  ? this.props.recentMatches
+                  : null
+              }
+            />
+          ) : (
+            <React.Fragment />
+          )}
         </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(mapStateToProps, actionCreators)(App);
