@@ -32,11 +32,7 @@ class App extends Component {
             <Card
               data={this.props.profile}
               winrate={this.props.winRate}
-              heroes={
-                this.props.recentMatches != null
-                  ? this.props.recentMatches
-                  : null
-              }
+              heroes={this.props.recentMatches}
             />
           ) : (
             <React.Fragment />
