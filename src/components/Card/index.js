@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Heroes from "../Heroes";
+import Loader from "../Loader";
 import Stats from "../Stats";
 import Ranking from "../Ranking";
 import UserProfile from "../UserProfile";
@@ -12,26 +13,34 @@ class Card extends Component {
       <div style={styles.card}>
         <div style={styles.columns}>
           <div style={styles.playerRow}>
-            <UserProfile
-              community={this.props.data.profile.profileurl}
-              username={this.props.data.profile.personaname}
-              profile={this.props.data.profile.avatarfull}
-            />
+            {this.props != null ? (
+              <UserProfile
+                community={this.props.data.profile.profileurl}
+                username={this.props.data.profile.personaname}
+                profile={this.props.data.profile.avatarfull}
+              />
+            ) : (
+              <Loader />
+            )}
             <Ranking ranktier={this.props.data.rank_tier} />
           </div>
           <div style={styles.statsrow}>
+            {this.props.heroes != null ? (
+              <Stats
+                wins={this.props.winrate.win}
+                losses={this.props.winrate.lose}
+              />
+            ) : (
+              <Loader />
+            )}
             {this.props.heroes != null ? (
               <Heroes
                 mmr={this.props.data.solo_competitive_rank}
                 heroes={this.props.heroes}
               />
             ) : (
-              ""
+              <Loader />
             )}
-            <Stats
-              wins={this.props.winrate.win}
-              losses={this.props.winrate.lose}
-            />
           </div>
           <div style={styles.row}>
             <CardFooter />
