@@ -35,20 +35,24 @@ class Ranking extends Component {
         <div style={{ paddingTop: 15 }}>
           <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
             {styles => (
-              <img
-                src={stars[parseRank(this.state.ranktier) - 1]}
-                style={[styles, styling.ranking]}
-                alt="ranking"
-              />
+              <div style={styles}>
+                <img
+                  src={stars[parseRank(this.state.ranktier) - 1]}
+                  style={styling.ranking}
+                  alt="ranking"
+                />
+              </div>
             )}
           </Spring>
           <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
             {styles => (
-              <img
-                src={ranks[parseStars(this.state.ranktier) - 1]}
-                style={[styles, styling.stars]}
-                alt="stars"
-              />
+              <div style={styles}>
+                <img
+                  src={ranks[parseStars(this.state.ranktier) - 1]}
+                  style={styling.stars}
+                  alt="stars"
+                />
+              </div>
             )}
           </Spring>
         </div>
