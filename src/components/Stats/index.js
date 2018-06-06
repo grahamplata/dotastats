@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Spring } from "react-spring";
 
 class Stats extends Component {
   render() {
@@ -14,7 +15,7 @@ class Stats extends Component {
           Winrate:{" "}
           <a style={styles.winrate}>
             {Math.floor(
-              this.props.wins / (this.props.losses + this.props.wins) * 100
+              (this.props.wins / (this.props.losses + this.props.wins)) * 100
             )}%
           </a>
         </p>

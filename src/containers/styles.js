@@ -18,6 +18,15 @@ export const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
+  },
+  button: {
+    background: "#3498db",
+    borderRadius: "5px",
+    border: "none",
+    color: "white",
+    fontSize: "12px",
+    padding: "10px 20px 10px 20px",
+    textDecoration: "none"
   }
 };
 
