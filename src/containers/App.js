@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as actionCreators from "../actions";
 import Card from "../components/Card";
 import logo from "../images/logo.svg";
+import logo2 from "../images/dota.svg";
 import injectStyle from "../utils/injectStyle";
 import { styles, keyframesStyle } from "./styles";
 import { Spring } from "react-spring";
@@ -14,6 +15,7 @@ class App extends Component {
     return (
       <div style={styles.app}>
         <header style={styles.appHeader}>
+          <img src={logo2} style={styles.applogo} alt="logo" />
           <img src={logo} style={styles.applogo} alt="logo" />
           <h1 style={styles.appTitle}>
             {process.env.REACT_APP_OPENDOTA != null
