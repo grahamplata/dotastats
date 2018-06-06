@@ -54,13 +54,15 @@ export function fetchProfile() {
 export function updateWinRate(data) {
   return {
     type: "UPDATE_WINRATE",
-    data: data
+    data: data,
+    isFetching: true
   };
 }
 
 export function updateRecentMatches(data) {
   return {
     type: "UPDATE_RECENTMATCHES",
-    data: data
+    data: data,
+    isFetching: true
   };
 }

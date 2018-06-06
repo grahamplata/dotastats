@@ -22,12 +22,14 @@ const mainReducer = (state = initialState, action) => {
     case "UPDATE_WINRATE": {
       return Object.assign({}, state, {
         ...state,
+        isFetching: false,
         winRate: action.data
       });
     }
     case "UPDATE_RECENTMATCHES": {
       return Object.assign({}, state, {
         ...state,
+        isFetching: false,
         recentMatches: action.data
       });
     }
