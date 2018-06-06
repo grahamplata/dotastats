@@ -21,11 +21,12 @@ class App extends Component {
               : "Api Key Not Present"}
           </h1>
           <button
+            style={styles.button}
             onClick={() => {
               this.props.loadProfile();
             }}
           >
-            Get Profile
+            GET STATS
           </button>
         </header>
         <div style={styles.container}>

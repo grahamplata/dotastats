@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class Loader extends Component {
   render() {
-    return <div style={{ color: "white" }}>Loading</div>;
+    return (
+      <div>
+        <p style={{ color: "white" }}>Loading...</p>
+      </div>
+    );
   }
 }
 

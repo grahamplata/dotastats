@@ -15,3 +15,9 @@ h2 {
 p {
   font-size: 0.875em;
 }
+
+.wrapper {
+  min-height: 100vh;
+  background-image: linear-gradient(#fff, #fff);
+  transition: all 1s ease-in-out;
+}
