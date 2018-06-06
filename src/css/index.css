@@ -21,3 +21,12 @@ p {
   background-image: linear-gradient(#fff, #fff);
   transition: all 1s ease-in-out;
 }
+
+.content {
+  min-height: calc(100vh - 70px);
+}
+.footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
