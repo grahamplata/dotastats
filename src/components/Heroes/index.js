@@ -1,17 +1,32 @@
 import React, { Component } from "react";
+import { Trail } from "react-spring";
 
 class Heroes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { ...props };
+  }
   render() {
-    var items = this.props.heroes
-      .filter((i, index) => index < 3)
-      .map((i, index) => {
-        return <i key={i.match_id} className={`d2mh hero-${i.hero_id}`} />;
-      });
-
     return (
       <div>
-        <p style={styles.p}>Estimated MMR: {this.props.mmr || 0}</p>
-        <div style={styles.items}>{items}</div>
+        <p style={styles.p}>Estimated MMR: {this.state.mmr || 0}</p>
+        <div style={styles.items}>
+          <Trail
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}
+            keys={this.state.heroes.slice(0, 3).map(item => item.match_id)}
+          >
+            {this.state.heroes
+              .slice(0, 3)
+              .map(item => styles => (
+                <i
+                  style={styles}
+                  key={item.match_id}
+                  className={`d2mh hero-${item.hero_id}`}
+                />
+              ))}
+          </Trail>
+        </div>
       </div>
     );
   }

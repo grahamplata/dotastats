@@ -11,6 +11,7 @@ import star2 from "../../images/rank_star_2.png";
 import star3 from "../../images/rank_star_3.png";
 import star4 from "../../images/rank_star_4.png";
 import star5 from "../../images/rank_star_5.png";
+import { Spring } from "react-spring";
 
 const stars = [star1, star2, star3, star4, star5];
 const ranks = [rank1, rank2, rank3, rank4, rank5, rank6, rank7];
@@ -24,20 +25,32 @@ function parseStars(rankTier) {
 }
 
 class Ranking extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { ...props };
+  }
   render() {
     return (
-      <div style={styles.hero}>
+      <div style={styling.hero}>
         <div style={{ paddingTop: 15 }}>
-          <img
-            src={stars[parseRank(this.props.ranktier) - 1]}
-            style={styles.ranking}
-            alt="ranking"
-          />
-          <img
-            src={ranks[parseStars(this.props.ranktier) - 1]}
-            style={styles.stars}
-            alt="stars"
-          />
+          <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+            {styles => (
+              <img
+                src={stars[parseRank(this.state.ranktier) - 1]}
+                style={[styles, styling.ranking]}
+                alt="ranking"
+              />
+            )}
+          </Spring>
+          <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+            {styles => (
+              <img
+                src={ranks[parseStars(this.state.ranktier) - 1]}
+                style={[styles, styling.stars]}
+                alt="stars"
+              />
+            )}
+          </Spring>
         </div>
       </div>
     );
@@ -46,7 +59,7 @@ class Ranking extends Component {
 
 export default Ranking;
 
-const styles = {
+const styling = {
   hero: {
     display: "flex",
     flexDirection: "column",

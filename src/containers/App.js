@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Loader from "../components/Loader";
 import { connect } from "react-redux";
 import * as actionCreators from "../actions";
 import Card from "../components/Card";
@@ -39,7 +38,7 @@ class App extends Component {
           ) : !this.props.isFetching ? (
             <React.Fragment />
           ) : (
-            <Loader />
+            <React.Fragment />
           )}
         </div>
       </div>
@@ -51,4 +50,7 @@ const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps, actionCreators)(App);
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(App);

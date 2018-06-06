@@ -29,7 +29,9 @@ export function loadWinRate() {
 export function loadRecentMatches() {
   return dispatch => {
     return axios
-      .get("https://api.opendota.com/api/players/29597998/recentMatches")
+      .get(
+        "https://api.opendota.com/api/players/29597998/recentMatches${process.env.REACT_APP_OPENDOTA}"
+      )
       .then(response => {
         dispatch(updateRecentMatches(response.data));
       });
