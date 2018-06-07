@@ -13,51 +13,49 @@ injectStyle(keyframesStyle);
 class App extends Component {
   render() {
     return (
-      <div>
-        <div className="content">
-          <div style={styles.app}>
-            <header style={styles.appHeader}>
-              <img src={dota} style={styles.applogo} alt="logo" />
-              <h1 style={styles.appTitle}>
-                {process.env.REACT_APP_OPENDOTA != null
-                  ? "Dota Stats"
-                  : "Api Key Not Present"}
-              </h1>
-              {this.props.profile == null || this.props.isFetching == true ? (
-                <button
-                  style={styles.button}
-                  onClick={() => {
-                    this.props.loadProfile();
-                  }}
-                >
-                  Fetch Stats
-                </button>
-              ) : (
-                <React.Fragment />
-              )}
-            </header>
-            <div style={styles.container}>
-              {this.props.profile != null ? (
-                <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
-                  {animation => (
-                    <Card
-                      style={animation}
-                      data={this.props.profile}
-                      winrate={this.props.winRate}
-                      heroes={this.props.recentMatches}
-                    />
-                  )}
-                </Spring>
-              ) : !this.props.isFetching ? (
-                <React.Fragment />
-              ) : (
-                <React.Fragment />
-              )}
-            </div>
+      <React.Fragment>
+        <div className="content" style={styles.app}>
+          <header style={styles.appHeader}>
+            <img src={dota} style={styles.applogo} alt="logo" />
+            <h1 style={styles.appTitle}>
+              {process.env.REACT_APP_OPENDOTA != null
+                ? "Dota Stats"
+                : "Api Key Not Present"}
+            </h1>
+            {this.props.profile == null || this.props.isFetching === true ? (
+              <button
+                style={styles.button}
+                onClick={() => {
+                  this.props.loadProfile();
+                }}
+              >
+                Fetch Stats
+              </button>
+            ) : (
+              <React.Fragment />
+            )}
+          </header>
+          <div style={styles.container}>
+            {this.props.profile != null ? (
+              <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                {animation => (
+                  <Card
+                    style={animation}
+                    data={this.props.profile}
+                    winrate={this.props.winRate}
+                    heroes={this.props.recentMatches}
+                  />
+                )}
+              </Spring>
+            ) : !this.props.isFetching ? (
+              <React.Fragment />
+            ) : (
+              <React.Fragment />
+            )}
           </div>
         </div>
         <AppFooter />
-      </div>
+      </React.Fragment>
     );
   }
 }

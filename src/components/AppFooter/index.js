@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import reactLogo from "../../images/react.svg";
 import reduxLogo from "../../images/redux.svg";
 import dotaLogo from "../../images/dota.svg";
