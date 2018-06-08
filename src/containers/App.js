@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actionCreators from "../actions";
+import { Spring } from "react-spring";
 import Card from "../components/Card";
+import AppFooter from "../components/AppFooter";
 import dota from "../images/dota.svg";
+import * as actionCreators from "../actions";
 import injectStyle from "../utils/injectStyle";
 import { styles, keyframesStyle } from "./styles";
-import { Spring } from "react-spring";
-import AppFooter from "../components/AppFooter";
 
 injectStyle(keyframesStyle);
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: "29597998" };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,16 +40,17 @@ class App extends Component {
                 : "Api Key Not Present"}
             </h1>
             {this.props.profile == null || this.props.isFetching === true ? (
-              <form onSubmit={this.handleSubmit}>
-                <label>
+              <form style={styles.form} onSubmit={this.handleSubmit}>
+                <label style={styles.formLabel}>
                   Account ID:{" "}
                   <input
+                    style={styles.formInput}
                     type="text"
                     value={this.state.value}
                     onChange={this.handleChange}
                   />
                 </label>
-                <input type="submit" value="Submit" />
+                <input style={styles.formButton} type="submit" value="Submit" />
               </form>
             ) : (
               <React.Fragment />
