@@ -11,6 +11,23 @@ import AppFooter from "../components/AppFooter";
 injectStyle(keyframesStyle);
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: "" };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    this.props.loadProfile(this.state.value);
+    event.preventDefault();
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -23,14 +40,17 @@ class App extends Component {
                 : "Api Key Not Present"}
             </h1>
             {this.props.profile == null || this.props.isFetching === true ? (
-              <button
-                style={styles.button}
-                onClick={() => {
-                  this.props.loadProfile();
-                }}
-              >
-                Fetch Stats
-              </button>
+              <form onSubmit={this.handleSubmit}>
+                <label>
+                  Account ID:{" "}
+                  <input
+                    type="text"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <input type="submit" value="Submit" />
+              </form>
             ) : (
               <React.Fragment />
             )}

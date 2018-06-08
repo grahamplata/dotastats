@@ -1,35 +1,36 @@
 import axios from "axios";
 
-export function loadProfile() {
+export function loadProfile(account_id) {
   return dispatch => {
     dispatch(fetchProfile());
     return axios
       .get(
-        "https://api.opendota.com/api/players/29597998"
+        `https://api.opendota.com/api/players/${account_id}`
+        // `https://api.opendota.com/api/players/29597998`
         // + "?api_key=" + process.env.REACT_APP_OPENDOTA
       )
       .then(response => {
-        dispatch(loadWinRate(response.data));
         dispatch(updateProfile(response.data));
-        dispatch(loadRecentMatches(response.data));
+        dispatch(loadWinRate(account_id));
+        dispatch(loadRecentMatches(account_id));
       });
   };
 }
 
-export function loadWinRate() {
+export function loadWinRate(account_id) {
   return dispatch => {
     return axios
-      .get("https://api.opendota.com/api/players/29597998/wl")
+      .get(`https://api.opendota.com/api/players/${account_id}/wl`)
       .then(response => {
         dispatch(updateWinRate(response.data));
       });
   };
 }
 
-export function loadRecentMatches() {
+export function loadRecentMatches(account_id) {
   return dispatch => {
     return axios
-      .get("https://api.opendota.com/api/players/29597998/recentMatches")
+      .get(`https://api.opendota.com/api/players/${account_id}/recentMatches`)
       .then(response => {
         dispatch(updateRecentMatches(response.data));
       });
