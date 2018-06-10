@@ -52,7 +52,7 @@ export const styles = {
     textDecoration: "none"
   },
   formButton: {
-    background: "#3498db",
+    background: "#2489cd",
     borderRadius: "5px",
     border: "none",
     color: "white",
@@ -60,7 +60,8 @@ export const styles = {
     maxWidth: "150px",
     marginLeft: "10px",
     padding: "10px 20px 10px 20px",
-    textDecoration: "none"
+    textDecoration: "none",
+    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
   }
 };
 
