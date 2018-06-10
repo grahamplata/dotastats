@@ -35,7 +35,6 @@ export const styles = {
     alignItems: "center"
   },
   formInput: {
-    background: "#fff",
     borderRadius: "5px",
     border: "none",
     color: "black",
@@ -43,7 +42,8 @@ export const styles = {
     maxWidth: "150px",
     marginLeft: "10px",
     padding: "10px 20px 10px 20px",
-    textDecoration: "none"
+    textDecoration: "none",
+    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
   },
   formLabel: {
     color: "#fff",
@@ -62,6 +62,16 @@ export const styles = {
     padding: "10px 20px 10px 20px",
     textDecoration: "none",
     boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
+  },
+  cards: {
+    marginTop: 15,
+    justifyContent: "center",
+    textAlign: "center",
+    overflow: "hidden",
+    width: "400px",
+    height: "200px",
+    paddingLeft: "20px",
+    paddingRight: "20px"
   }
 };
 
