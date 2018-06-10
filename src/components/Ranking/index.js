@@ -7,6 +7,8 @@ import rank4 from "../../images/rank_icon_4.png";
 import rank5 from "../../images/rank_icon_5.png";
 import rank6 from "../../images/rank_icon_6.png";
 import rank7 from "../../images/rank_icon_7.png";
+import rank8 from "../../images/rank_icon_8.png";
+import rank9 from "../../images/rank_icon_9.png";
 import star1 from "../../images/rank_star_1.png";
 import star2 from "../../images/rank_star_2.png";
 import star3 from "../../images/rank_star_3.png";
@@ -15,7 +17,7 @@ import star5 from "../../images/rank_star_5.png";
 import { Spring } from "react-spring";
 
 const stars = [star1, star2, star3, star4, star5];
-const ranks = [rank0, rank1, rank2, rank3, rank4, rank5, rank6, rank7];
+const ranks = [rank0, rank1, rank2, rank3, rank4, rank5, rank6, rank7, rank8, rank9];
 
 function parseRank(rankTier) {
   return String(rankTier).charAt(0);
