@@ -32,23 +32,23 @@ class App extends Component {
     return (
       <React.Fragment>
         <AppHeader />
-        {this.props.profile == null || this.props.isFetching === true ? (
-          <form style={styles.form} onSubmit={this.handleSubmit}>
-            <label style={styles.formLabel}>
-              SteamID:{" "}
-              <input
-                style={styles.formInput}
-                type="text"
-                value={this.state.value}
-                onChange={this.handleChange}
-              />
-            </label>
-            <input style={styles.formButton} type="submit" value="Submit" />
-          </form>
-        ) : (
-          <React.Fragment />
-        )}
         <div style={styles.container}>
+          {this.props.profile == null || this.props.isFetching === true ? (
+            <div style={styles.cards}>
+              <h3>Enter your 32bit Steam id Below</h3>
+              <form style={styles.form} onSubmit={this.handleSubmit}>
+                <input
+                  style={styles.formInput}
+                  type="text"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                />
+                <input style={styles.formButton} type="submit" value="Submit" />
+              </form>
+            </div>
+          ) : (
+            <React.Fragment />
+          )}
           {this.props.profile != null ? (
             <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
               {animation => (
