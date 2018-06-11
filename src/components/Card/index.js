@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import * as actionCreators from "../../actions";
+import { connect } from "react-redux";
 import Heroes from "../Heroes";
 import Loader from "../Loader";
 import Stats from "../Stats";
@@ -8,6 +10,10 @@ import CardFooter from "../CardFooter";
 import { styles } from "./styles";
 
 class Card extends Component {
+  componentWillMount() {
+    this.props.loadWinRate(this.props.data.profile.account_id);
+    this.props.loadRecentMatches(this.props.data.profile.account_id);
+  }
   render() {
     return (
       <div style={styles.card}>
@@ -51,4 +57,11 @@ class Card extends Component {
   }
 }
 
-export default Card;
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Card);

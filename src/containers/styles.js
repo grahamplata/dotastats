@@ -72,6 +72,17 @@ export const styles = {
     height: "200px",
     paddingLeft: "20px",
     paddingRight: "20px"
+  },
+  error: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "10px",
+    background: "#D80027",
+    color: "white",
+    padding: "1px",
+    borderRadius: "5px",
+    opacity: "0.8",
+    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
   }
 };
 

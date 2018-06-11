@@ -1,7 +1,8 @@
 const initialState = {
   isFetching: false,
   winRate: { win: 0, lose: 0 },
-  recentMatches: null
+  recentMatches: null,
+  profileValid: null
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -10,6 +11,7 @@ const mainReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         ...state,
         isFetching: false,
+        profileValid: true,
         profile: action.data
       });
     }
@@ -31,6 +33,13 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         recentMatches: action.data
+      });
+    }
+    case "FETCHING_FAILED": {
+      return Object.assign({}, state, {
+        ...state,
+        profileValid: false,
+        isFetching: false
       });
     }
     default:
