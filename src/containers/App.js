@@ -58,6 +58,15 @@ class App extends Component {
                 />
                 <input style={styles.formButton} type="submit" value="Submit" />
               </form>
+              <div style={styles.cards}>
+                {this.props.profileValid === false ? (
+                  <div style={styles.error}>
+                    <p>Unable to Find Trackable Profile</p>
+                  </div>
+                ) : (
+                  <React.Fragment />
+                )}
+              </div>
             </div>
           ) : (
             <React.Fragment />
