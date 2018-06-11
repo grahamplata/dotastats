@@ -17,7 +17,18 @@ import star5 from "../../images/rank_star_5.png";
 import { Spring } from "react-spring";
 
 const stars = [star1, star2, star3, star4, star5];
-const ranks = [rank0, rank1, rank2, rank3, rank4, rank5, rank6, rank7, rank8, rank9];
+const ranks = [
+  rank0,
+  rank1,
+  rank2,
+  rank3,
+  rank4,
+  rank5,
+  rank6,
+  rank7,
+  rank8,
+  rank9
+];
 
 function parseRank(rankTier) {
   return String(rankTier).charAt(0);
@@ -44,7 +55,7 @@ class Ranking extends Component {
                     this.state.ranktier == null ? (
                       <React.Fragment />
                     ) : (
-                      stars[parseRank(this.state.ranktier) - 1]
+                      stars[parseStars(this.state.ranktier) - 1]
                     )
                   }
                   style={styling.ranking}
@@ -60,7 +71,7 @@ class Ranking extends Component {
                   src={
                     this.state.ranktier == null
                       ? ranks[0]
-                      : ranks[parseStars(this.state.ranktier) - 1]
+                      : ranks[parseRank(this.state.ranktier)]
                   }
                   style={styling.stars}
                   alt=""
