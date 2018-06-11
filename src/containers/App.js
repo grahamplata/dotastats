@@ -13,7 +13,10 @@ injectStyle(keyframesStyle);
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "29597998" };
+    this.state = {
+      value: "29597998",
+      inputValid: true
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,9 +26,19 @@ class App extends Component {
     this.setState({ value: event.target.value });
   }
 
+  isValid(input) {
+    if (input !== "") {
+      this.setState({ inputValid: false });
+    } else {
+      this.setState({ inputValid: true });
+    }
+  }
+
   handleSubmit(event) {
-    this.props.loadProfile(this.state.value);
     event.preventDefault();
+    if (this.state.inputValid === true) {
+      this.props.loadProfile(this.state.value);
+    }
   }
 
   render() {

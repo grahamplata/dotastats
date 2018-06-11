@@ -4,15 +4,9 @@ export function loadProfile(account_id) {
   return dispatch => {
     dispatch(fetchProfile());
     return axios
-      .get(
-        `https://api.opendota.com/api/players/${account_id}`
-        // `https://api.opendota.com/api/players/29597998`
-        // + "?api_key=" + process.env.REACT_APP_OPENDOTA
-      )
+      .get(`https://api.opendota.com/api/players/${account_id}`)
       .then(response => {
         dispatch(updateProfile(response.data));
-        dispatch(loadWinRate(account_id));
-        dispatch(loadRecentMatches(account_id));
       });
   };
 }
