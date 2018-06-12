@@ -67,6 +67,65 @@ class App extends Component {
           ) : (
             <React.Fragment />
           )}
+          <table
+            style={{
+              width: "100%",
+              maxWidth: "400px",
+              alignText: "center",
+              paddingLeft: "20px",
+              paddingRight: "20px",
+              paddingTop: "5px",
+              paddingBottom: "5px",
+              boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+              zIndex: "1"
+            }}
+          >
+            <tr style={{ textAlign: "center" }}>
+              <th style={{ textAlign: "left" }}>Hero</th>
+              <th>Result</th>
+              <th>Type</th>
+              <th>Duration</th>
+              <th>KDA</th>
+            </tr>
+            <tr style={{ textAlign: "center" }}>
+              <td style={{ textAlign: "left" }}>
+                <div style={{ lineHeight: "1px" }}>
+                  <p>
+                    <strong>Beastmaster</strong>
+                  </p>
+                  <p>
+                    <small>High Skill</small>
+                  </p>
+                </div>
+              </td>
+              <td>
+                <div style={{ lineHeight: "1px" }}>
+                  <p style={{ color: "red" }}>
+                    <strong>Loss</strong>
+                  </p>
+                  <p>
+                    <small>a day ago</small>
+                  </p>
+                </div>
+              </td>
+              <td>
+                <div style={{ lineHeight: "1px" }}>
+                  <p>
+                    <strong>Normal</strong>
+                  </p>
+                  <p>
+                    <small>All pick</small>
+                  </p>
+                </div>
+              </td>
+              <td>
+                <small>29:06</small>
+              </td>
+              <td>
+                <small>5/1/3</small>
+              </td>
+            </tr>
+          </table>
         </div>
         <AppFooter />
       </React.Fragment>
