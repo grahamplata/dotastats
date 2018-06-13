@@ -12,7 +12,7 @@ export const styles = {
     height: "200px",
     paddingLeft: "20px",
     paddingRight: "20px",
-    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
+    boxShadow: "0 0px 8px 0 rgba(0,0,0,0.2)"
   },
   columns: {
     display: "flex",
