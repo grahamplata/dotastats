@@ -7,12 +7,17 @@ class Table extends Component {
       <tr style={styles.tableCenter}>
         <td style={styles.tableLeft}>
           <div style={styles.tableHeight}>
-            <p>
-              <strong>Beastmaster</strong>
-            </p>
-            <p>
-              <small>High Skill</small>
-            </p>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <i className={`d2mh hero-1`} />
+              <div style={[{ display: "flex", flexDirection: "column" }]}>
+                <p>
+                  <strong>Beastmaster</strong>
+                </p>
+                <p>
+                  <small>High Skill</small>
+                </p>
+              </div>
+            </div>
           </div>
         </td>
         <td>
