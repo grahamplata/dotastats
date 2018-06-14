@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import moment from "moment";
+import "moment-duration-format";
 import { styles } from "./styles";
 
 class Table extends Component {
@@ -17,7 +19,7 @@ class Table extends Component {
                     <strong>{match.match_id}</strong>
                   </p>
                   <p>
-                    <small>High Skill</small>
+                    <small>{match.skill}</small>
                   </p>
                 </div>
               </div>
@@ -29,7 +31,7 @@ class Table extends Component {
                 <strong>Loss</strong>
               </p>
               <p>
-                <small>{match.start_time}</small>
+                <small>{moment.unix(match.start_time).fromNow()}</small>
               </p>
             </div>
           </td>
@@ -44,7 +46,11 @@ class Table extends Component {
             </div>
           </td>
           <td>
-            <small>{match.duration}</small>
+            <small>
+              {moment
+                .duration(match.duration, "seconds")
+                .format("h [hrs], m [min]")}
+            </small>
           </td>
           <td>
             <small>
