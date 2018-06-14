@@ -4,6 +4,7 @@ import { Spring } from "react-spring";
 import Card from "../components/Card";
 import AppFooter from "../components/AppFooter";
 import AppHeader from "../components/AppHeader";
+import Table from "../components/Table";
 import * as actionCreators from "../actions";
 import injectStyle from "../utils/injectStyle";
 import { styles, keyframesStyle } from "./styles";
@@ -64,6 +65,11 @@ class App extends Component {
             </Spring>
           ) : !this.props.isFetching ? (
             <React.Fragment />
+          ) : (
+            <React.Fragment />
+          )}
+          {this.props.recentMatches != null ? (
+            <Table matches={this.props.recentMatches} />
           ) : (
             <React.Fragment />
           )}
