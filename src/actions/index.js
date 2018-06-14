@@ -6,15 +6,7 @@ export function loadProfile(account_id) {
     return axios
       .get(`https://api.opendota.com/api/players/${account_id}`)
       .then(response => {
-        if (response.data.tracked_until == null) {
-          dispatch(fetchFailed());
-        } else {
-          dispatch(updateProfile(response.data));
-        }
-      })
-      .catch(function(error) {
-        dispatch(fetchFailed());
-        console.log(error);
+        dispatch(updateProfile(response.data));
       });
   };
 }
@@ -25,9 +17,6 @@ export function loadWinRate(account_id) {
       .get(`https://api.opendota.com/api/players/${account_id}/wl`)
       .then(response => {
         dispatch(updateWinRate(response.data));
-      })
-      .catch(function(error) {
-        console.log(error);
       });
   };
 }
@@ -38,9 +27,6 @@ export function loadRecentMatches(account_id) {
       .get(`https://api.opendota.com/api/players/${account_id}/recentMatches`)
       .then(response => {
         dispatch(updateRecentMatches(response.data));
-      })
-      .catch(function(error) {
-        console.log(error);
       });
   };
 }
@@ -49,7 +35,6 @@ export function updateProfile(data) {
   return {
     type: "UPDATE_PROFILE",
     isFetching: false,
-    profileValid: true,
     data: data
   };
 }
@@ -80,7 +65,6 @@ export function updateRecentMatches(data) {
 export function fetchFailed() {
   return {
     type: "FETCHING_FAILED",
-    profileValid: false,
     isFetching: false
   };
 }

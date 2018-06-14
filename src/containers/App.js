@@ -4,6 +4,7 @@ import { Spring } from "react-spring";
 import Card from "../components/Card";
 import AppFooter from "../components/AppFooter";
 import AppHeader from "../components/AppHeader";
+import Table from "../components/Table";
 import * as actionCreators from "../actions";
 import injectStyle from "../utils/injectStyle";
 import { styles, keyframesStyle } from "./styles";
@@ -14,8 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "29597998",
-      inputValid: true
+      input: "29597998"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -23,22 +23,12 @@ class App extends Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
-  isValid(input) {
-    if (input !== "") {
-      this.setState({ inputValid: false });
-    } else {
-      this.setState({ inputValid: true });
-    }
+    this.setState({ input: event.target.value });
   }
 
   handleSubmit(event) {
+    this.props.loadProfile(this.state.input);
     event.preventDefault();
-    if (this.state.inputValid === true) {
-      this.props.loadProfile(this.state.value);
-    }
   }
 
   render() {
@@ -53,20 +43,11 @@ class App extends Component {
                 <input
                   style={styles.formInput}
                   type="text"
-                  value={this.state.value}
+                  value={this.state.input}
                   onChange={this.handleChange}
                 />
                 <input style={styles.formButton} type="submit" value="Submit" />
               </form>
-              <div style={styles.cards}>
-                {this.props.profileValid === false ? (
-                  <div style={styles.error}>
-                    <p>Unable to Find Trackable Profile</p>
-                  </div>
-                ) : (
-                  <React.Fragment />
-                )}
-              </div>
             </div>
           ) : (
             <React.Fragment />
@@ -84,6 +65,11 @@ class App extends Component {
             </Spring>
           ) : !this.props.isFetching ? (
             <React.Fragment />
+          ) : (
+            <React.Fragment />
+          )}
+          {this.props.recentMatches != null ? (
+            <Table matches={this.props.recentMatches} />
           ) : (
             <React.Fragment />
           )}
