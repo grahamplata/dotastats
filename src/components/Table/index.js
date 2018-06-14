@@ -6,7 +6,8 @@ import {
   setGameType,
   setLobbyType,
   setSkill,
-  setPlayerTeam
+  setPlayerTeam,
+  setMatchWinner
 } from "../../utils/matchUtils.js";
 import { styles } from "./styles";
 
@@ -18,7 +19,7 @@ class Table extends Component {
   createRows = props => {
     let table = [];
     let matches = props.matches;
-    matches.slice(0, 4).forEach((match, index) => {
+    matches.slice(0, 8).forEach((match, index) => {
       table.push(
         <tr key={index} style={styles.tableCenter}>
           <td style={styles.tableLeft}>
@@ -43,8 +44,10 @@ class Table extends Component {
           </td>
           <td>
             <div style={styles.tableHeight}>
-              <p style={styles.loss}>
-                <strong>Victory </strong>
+              <p>
+                <strong>
+                  {setMatchWinner(match.radiant_win, match.player_slot)}
+                </strong>
               </p>
               <p>
                 <small>as {setPlayerTeam(match.player_slot)}</small>
@@ -87,7 +90,7 @@ class Table extends Component {
       <table style={styles.tableWrapper}>
         <thead>
           <tr style={styles.tableCenter}>
-            <th style={styles.tableLeft}>Hero</th>
+            <th style={styles.tableLeft}>Match</th>
             <th>Result</th>
             <th>Type</th>
             <th>Duration</th>

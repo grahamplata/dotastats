@@ -33,7 +33,7 @@ export const setLobbyType = lobby_type => {
 export const setSkill = skill => {
   switch (skill) {
     case null:
-      return "Not Available";
+      return "";
     case 0:
       return "Low Skill";
     case 1:
@@ -65,22 +65,6 @@ export const setHeroName = hero_id => {
   }
 };
 
-export const loss = (player, match) => {
-  if (player !== match) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-export const win = (player, match) => {
-  if (player === match) {
-    return "Win";
-  } else {
-    return "Loss";
-  }
-};
-
 export const setPlayerTeam = slot => {
   if (slot <= 4) {
     return "Radiant";
@@ -88,9 +72,12 @@ export const setPlayerTeam = slot => {
   return "Dire";
 };
 
-export const setMatchWinner = match => {
-  if (match === true) {
-    return "Radiant";
+export const setMatchWinner = (radiant_win, slot) => {
+  const team = setPlayerTeam(slot);
+  if (team === "Radiant" && radiant_win === true) {
+    return "Victory";
+  } else if (team === "Dire" && radiant_win === false) {
+    return "Victory";
   }
-  return "Dire";
+  return "Loss";
 };
