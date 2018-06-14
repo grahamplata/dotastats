@@ -2,53 +2,60 @@ import React, { Component } from "react";
 import { styles } from "./styles";
 
 class Table extends Component {
-  renderMatches() {
-    return (
-      <tr style={styles.tableCenter}>
-        <td style={styles.tableLeft}>
-          <div style={styles.tableHeight}>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <i className={`d2mh hero-1`} />
-              <div style={[{ display: "flex", flexDirection: "column" }]}>
-                <p>
-                  <strong>Beastmaster</strong>
-                </p>
-                <p>
-                  <small>High Skill</small>
-                </p>
+  createRows = props => {
+    let table = [];
+    let matches = props.matches;
+    matches.slice(0, 5).map((match, index) => {
+      table.push(
+        <tr key={index} style={styles.tableCenter}>
+          <td style={styles.tableLeft}>
+            <div style={styles.tableHeight}>
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                <i className={`d2mh hero-${match.hero_id}`} />
+                <div style={[{ display: "flex", flexDirection: "column" }]}>
+                  <p>
+                    <strong>{match.match_id}</strong>
+                  </p>
+                  <p>
+                    <small>High Skill</small>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </td>
-        <td>
-          <div style={styles.tableHeight}>
-            <p style={styles.loss}>
-              <strong>Loss</strong>
-            </p>
-            <p>
-              <small>a day ago</small>
-            </p>
-          </div>
-        </td>
-        <td>
-          <div style={styles.tableHeight}>
-            <p>
-              <strong>Normal</strong>
-            </p>
-            <p>
-              <small>All pick</small>
-            </p>
-          </div>
-        </td>
-        <td>
-          <small>29:06</small>
-        </td>
-        <td>
-          <small>5/1/3</small>
-        </td>
-      </tr>
-    );
-  }
+          </td>
+          <td>
+            <div style={styles.tableHeight}>
+              <p style={styles.loss}>
+                <strong>Loss</strong>
+              </p>
+              <p>
+                <small>{match.start_time}</small>
+              </p>
+            </div>
+          </td>
+          <td>
+            <div style={styles.tableHeight}>
+              <p>
+                <strong>{match.game_mode}</strong>
+              </p>
+              <p>
+                <small>{match.lobby_type}</small>
+              </p>
+            </div>
+          </td>
+          <td>
+            <small>{match.duration}</small>
+          </td>
+          <td>
+            <small>
+              {match.kills}/{match.deaths}/{match.assists}
+            </small>
+          </td>
+        </tr>
+      );
+    });
+    return table;
+  };
 
   render() {
     return (
@@ -62,7 +69,7 @@ class Table extends Component {
             <th>KDA</th>
           </tr>
         </thead>
-        <tbody>{this.renderMatches()}</tbody>
+        <tbody>{this.createRows(this.props)}</tbody>
       </table>
     );
   }

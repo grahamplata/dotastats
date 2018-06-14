@@ -68,7 +68,11 @@ class App extends Component {
           ) : (
             <React.Fragment />
           )}
-          <Table matches={this.props.recentMatches} />
+          {this.props.recentMatches != null ? (
+            <Table matches={this.props.recentMatches} />
+          ) : (
+            <React.Fragment />
+          )}
         </div>
         <AppFooter />
       </React.Fragment>
