@@ -1,25 +1,41 @@
 import React, { Component } from "react";
 import moment from "moment";
 import "moment-duration-format";
+import {
+  matchUtils,
+  setGameType,
+  setLobbyType,
+  setSkill,
+  setPlayerTeam
+} from "../../utils/matchUtils.js";
 import { styles } from "./styles";
 
 class Table extends Component {
+  componentDidMount() {
+    matchUtils();
+  }
+
   createRows = props => {
     let table = [];
     let matches = props.matches;
-    matches.slice(0, 5).map((match, index) => {
+    matches.slice(0, 4).forEach((match, index) => {
       table.push(
         <tr key={index} style={styles.tableCenter}>
           <td style={styles.tableLeft}>
             <div style={styles.tableHeight}>
-              <div style={{ display: "flex", flexDirection: "row" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row"
+                }}
+              >
                 <i className={`d2mh hero-${match.hero_id}`} />
                 <div style={[{ display: "flex", flexDirection: "column" }]}>
                   <p>
                     <strong>{match.match_id}</strong>
                   </p>
                   <p>
-                    <small>{match.skill}</small>
+                    <small>{setSkill(match.skill)}</small>
                   </p>
                 </div>
               </div>
@@ -28,20 +44,23 @@ class Table extends Component {
           <td>
             <div style={styles.tableHeight}>
               <p style={styles.loss}>
-                <strong>Loss</strong>
+                <strong>Victory </strong>
               </p>
               <p>
-                <small>{moment.unix(match.start_time).fromNow()}</small>
+                <small>as {setPlayerTeam(match.player_slot)}</small>
               </p>
+              {/* <p>
+                <small>{moment.unix(match.start_time).fromNow()}</small>
+              </p> */}
             </div>
           </td>
           <td>
             <div style={styles.tableHeight}>
               <p>
-                <strong>{match.game_mode}</strong>
+                <strong>{setGameType(match.game_mode)}</strong>
               </p>
               <p>
-                <small>{match.lobby_type}</small>
+                <small>{setLobbyType(match.lobby_type)}</small>
               </p>
             </div>
           </td>

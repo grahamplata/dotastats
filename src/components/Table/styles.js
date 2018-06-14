@@ -1,7 +1,7 @@
 export const styles = {
   tableWrapper: {
     width: "100%",
-    maxWidth: "400px",
+    maxWidth: "450px",
     alignText: "center",
     paddingLeft: "20px",
     paddingRight: "20px",
