@@ -3,7 +3,9 @@
 ![dotastats](example.png "Application")
 
 _Description:_ A simple redux exercise powered by opendota
+
 _Try it here:_ `http://acid-scene.surge.sh/`
+
 _To use:_
 
 - Clone the repo `git clone https://github.com/grahamplata/dotastats.git`
