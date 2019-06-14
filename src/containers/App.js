@@ -6,10 +6,7 @@ import AppFooter from "../components/AppFooter";
 import AppHeader from "../components/AppHeader";
 import Table from "../components/Table";
 import * as actionCreators from "../actions";
-import injectStyle from "../utils/injectStyle";
 import { styles, keyframesStyle } from "./styles";
-
-injectStyle(keyframesStyle);
 
 class App extends Component {
   constructor(props) {

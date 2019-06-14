@@ -6,6 +6,7 @@ import thunk from "redux-thunk";
 import reducers from "./reducers";
 import "./styles/dota2minimapheroes.css";
 import "./styles/index.css";
+import GlobalStyle from "./styles/global";
 import App from "./containers/App";
 import registerServiceWorker from "./registerServiceWorker";
 
@@ -17,7 +18,10 @@ let store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <>
+      <GlobalStyle />
+      <App />
+    </>
   </Provider>,
   document.getElementById("root")
 );
