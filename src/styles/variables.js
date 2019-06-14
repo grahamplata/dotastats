@@ -1,20 +1,20 @@
 import changeColor from "./utils/changeColor";
 
-const h = "hsla(0, 0%, 0%, 1)";
+const base = "hsla(0, 0%, 0%, 1)";
 const background = "hsla(0, 0%, 100%, 1)";
 const header = "#282c34";
 const linkHover = "hsla(192, 100%, 50%, 1)";
 
 export const Colors = {
-  h,
-  p: changeColor(h, 0.8),
-  border: changeColor(h, 0.15),
-  code: changeColor(h, 0.1),
+  base,
+  p: changeColor(base, 0.8),
+  border: changeColor(base, 0.15),
+  input: changeColor(base, 0.03),
   background,
   header,
   linkHover,
-  link: changeColor(h, 0.35),
-  subNav: changeColor(h, 0.2)
+  link: changeColor(base, 0.35),
+  subNav: changeColor(base, 0.2)
 };
 
 export const Fonts = {

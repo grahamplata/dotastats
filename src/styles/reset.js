@@ -15,7 +15,11 @@ export default `
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  body,
+  body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  },
   nav,
   header,
   footer,
@@ -51,31 +55,6 @@ export default `
   }
   img {
     width: 100%;
-  }
-  input {
-    background: ${Colors.background};
-    font-size: 3em;
-    display: block;
-    width: 50%;
-    border: none;
-    border-bottom: 2px solid ${Colors.background}
-  }
-  input:focus,
-  select:focus,
-  textarea:focus,
-  button:focus {
-    outline: none;
-    background: ${Colors.background};
-    font-size: 3em;
-    display: block;
-    width: 50%;
-    border: none;
-    border-bottom: 2px solid ${Colors.background}
-  }
-  hr {
-    display: block;
-    margin: 1em 9em 1em;
-    font-size: 1rem;
   }
 
   .Dota-logo {

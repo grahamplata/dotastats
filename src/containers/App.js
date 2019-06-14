@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Spring } from "react-spring";
 import AppFooter from "../components/AppFooter";
 import Content from "../styles/containers/Content";
+import Container from "../styles/containers/Container";
+import { Input } from "../styles/containers/Form";
 import Card from "../components/Card";
 import AppHeader from "../components/AppHeader";
 import Table from "../components/Table";
@@ -30,14 +32,13 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Container>
         <AppHeader />
         <Content>
           {this.props.profile == null || this.props.isFetching === true ? (
             <div>
-              <h3>Enter your 32bit Steam id Below</h3>
               <form onSubmit={this.handleSubmit}>
-                <input
+                <Input
                   type="text"
                   value={this.state.input}
                   onChange={this.handleChange}
@@ -71,7 +72,7 @@ class App extends Component {
           )}
         </Content>
         <AppFooter />
-      </React.Fragment>
+      </Container>
     );
   }
 }
