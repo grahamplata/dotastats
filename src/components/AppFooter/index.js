@@ -9,7 +9,8 @@ const Footer = () => (
       Made with
       <a style={styles.text} href="https://reactjs.org/">
         <img src={reactLogo} style={styles.logos} alt="logo" />
-      </a>managed by{" "}
+      </a>
+      managed by{" "}
       <a style={styles.text} href="https://redux.js.org/">
         <img src={reduxLogo} style={styles.logos} alt="logo" />
       </a>{" "}
