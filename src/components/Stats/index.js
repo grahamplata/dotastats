@@ -5,19 +5,19 @@ class Stats extends Component {
     return (
       <div style={{ fontWeight: "bold" }}>
         <p>
-          Wins: <a style={styles.wins}>{this.props.wins}</a>
+          Wins: <button style={styles.wins}>{this.props.wins}</button>
         </p>
         <p>
-          Losses: <a style={styles.losses}>{this.props.losses}</a>
+          Losses: <button style={styles.losses}>{this.props.losses}</button>
         </p>
         <p>
           Winrate:{" "}
-          <a style={styles.winrate}>
+          <button style={styles.winrate}>
             {Math.floor(
               (this.props.wins / (this.props.losses + this.props.wins)) * 100
             )}
             %
-          </a>
+          </button>
         </p>
       </div>
     );
