@@ -9,7 +9,7 @@ import {
   setPlayerTeam,
   setMatchWinner
 } from "../../utils/matchUtils.js";
-import { styles } from "./styles";
+// import { styles } from "./styles";
 
 class Table extends Component {
   componentDidMount() {
@@ -21,17 +21,12 @@ class Table extends Component {
     let matches = props.matches;
     matches.slice(0, 8).forEach((match, index) => {
       table.push(
-        <tr key={index} style={styles.tableCenter}>
-          <td style={styles.tableLeft}>
-            <div style={styles.tableHeight}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row"
-                }}
-              >
+        <tr key={index}>
+          <td>
+            <div>
+              <div>
                 <i className={`d2mh hero-${match.hero_id}`} />
-                <div style={[{ display: "flex", flexDirection: "column" }]}>
+                <div>
                   <p>
                     <strong>{match.match_id}</strong>
                   </p>
@@ -43,7 +38,7 @@ class Table extends Component {
             </div>
           </td>
           <td>
-            <div style={styles.tableHeight}>
+            <div>
               <p>
                 <strong>
                   {setMatchWinner(match.radiant_win, match.player_slot)}
@@ -58,7 +53,7 @@ class Table extends Component {
             </div>
           </td>
           <td>
-            <div style={styles.tableHeight}>
+            <div>
               <p>
                 <strong>{setGameType(match.game_mode)}</strong>
               </p>
@@ -87,10 +82,10 @@ class Table extends Component {
 
   render() {
     return (
-      <table style={styles.tableWrapper}>
+      <table>
         <thead>
-          <tr style={styles.tableCenter}>
-            <th style={styles.tableLeft}>Match</th>
+          <tr>
+            <th>Match</th>
             <th>Result</th>
             <th>Type</th>
             <th>Duration</th>

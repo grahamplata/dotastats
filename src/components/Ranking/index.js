@@ -45,11 +45,11 @@ class Ranking extends Component {
   }
   render() {
     return (
-      <div style={styling.hero}>
-        <div style={{ paddingTop: 15 }}>
+      <div>
+        <div>
           <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
             {styles => (
-              <div style={styles}>
+              <div>
                 <img
                   src={
                     this.state.ranktier == null ? (
@@ -58,7 +58,6 @@ class Ranking extends Component {
                       stars[parseStars(this.state.ranktier) - 1]
                     )
                   }
-                  style={styling.ranking}
                   alt=""
                 />
               </div>
@@ -66,14 +65,13 @@ class Ranking extends Component {
           </Spring>
           <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
             {styles => (
-              <div style={styles}>
+              <div>
                 <img
                   src={
                     this.state.ranktier == null
                       ? ranks[0]
                       : ranks[parseRank(this.state.ranktier)]
                   }
-                  style={styling.stars}
                   alt=""
                 />
               </div>

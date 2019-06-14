@@ -3,16 +3,16 @@ import React, { Component } from "react";
 class Stats extends Component {
   render() {
     return (
-      <div style={{ fontWeight: "bold" }}>
+      <div>
         <p>
-          Wins: <button style={styles.wins}>{this.props.wins}</button>
+          Wins: <button>{this.props.wins}</button>
         </p>
         <p>
-          Losses: <button style={styles.losses}>{this.props.losses}</button>
+          Losses: <button>{this.props.losses}</button>
         </p>
         <p>
           Winrate:{" "}
-          <button style={styles.winrate}>
+          <button>
             {Math.floor(
               (this.props.wins / (this.props.losses + this.props.wins)) * 100
             )}

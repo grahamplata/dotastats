@@ -3,15 +3,13 @@ import React, { Component } from "react";
 class UserProfile extends Component {
   render() {
     return (
-      <div style={styles.playerRow}>
+      <div>
         <a href={this.props.community}>
-          <img style={styles.profile} src={this.props.profile} alt="" />
+          <img src={this.props.profile} alt="" />
         </a>
-        <div style={{ paddingLeft: 5 }}>
+        <div>
           <h3>
-            <a style={styles.link} href={this.props.community}>
-              {this.props.username}
-            </a>
+            <button href={this.props.community}>{this.props.username}</button>
           </h3>
         </div>
       </div>

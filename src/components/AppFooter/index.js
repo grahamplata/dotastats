@@ -7,16 +7,16 @@ const Footer = () => (
   <footer className="footer">
     <p>
       Made with
-      <a style={styles.text} href="https://reactjs.org/">
-        <img src={reactLogo} style={styles.logos} alt="logo" />
+      <a href="https://reactjs.org/">
+        <img src={reactLogo} alt="logo" />
       </a>
       managed by{" "}
-      <a style={styles.text} href="https://redux.js.org/">
-        <img src={reduxLogo} style={styles.logos} alt="logo" />
+      <a href="https://redux.js.org/">
+        <img src={reduxLogo} alt="logo" />
       </a>{" "}
       and stats provided by{" "}
-      <a style={styles.text} href="https://www.opendota.com/">
-        <img src={dotaLogo} style={styles.logos} alt="logo" />
+      <a href="https://www.opendota.com/">
+        <img src={dotaLogo} alt="logo" />
       </a>
     </p>
   </footer>

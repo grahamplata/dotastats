@@ -9,8 +9,8 @@ class Heroes extends Component {
   render() {
     return (
       <div>
-        <p style={styles.p}>Estimated MMR: {this.state.mmr || 0}</p>
-        <div style={styles.items}>
+        <p>Estimated MMR: {this.state.mmr || 0}</p>
+        <div>
           <Trail
             from={{ opacity: 0 }}
             to={{ opacity: 1 }}
@@ -20,7 +20,6 @@ class Heroes extends Component {
               .slice(0, 3)
               .map(item => styles => (
                 <i
-                  style={styles}
                   key={item.match_id}
                   className={`d2mh hero-${item.hero_id}`}
                 />
