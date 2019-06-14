@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Spring } from "react-spring";
-import Card from "../components/Card";
 import AppFooter from "../components/AppFooter";
+import Content from "../styles/containers/Content";
+import Card from "../components/Card";
 import AppHeader from "../components/AppHeader";
 import Table from "../components/Table";
 import * as actionCreators from "../actions";
-import { styles, keyframesStyle } from "./styles";
 
 class App extends Component {
   constructor(props) {
@@ -32,18 +32,17 @@ class App extends Component {
     return (
       <React.Fragment>
         <AppHeader />
-        <div style={styles.container}>
+        <Content>
           {this.props.profile == null || this.props.isFetching === true ? (
-            <div style={styles.cards}>
+            <div>
               <h3>Enter your 32bit Steam id Below</h3>
-              <form style={styles.form} onSubmit={this.handleSubmit}>
+              <form onSubmit={this.handleSubmit}>
                 <input
-                  style={styles.formInput}
                   type="text"
                   value={this.state.input}
                   onChange={this.handleChange}
                 />
-                <input style={styles.formButton} type="submit" value="Submit" />
+                <input type="submit" value="Submit" />
               </form>
             </div>
           ) : (
@@ -70,7 +69,7 @@ class App extends Component {
           ) : (
             <React.Fragment />
           )}
-        </div>
+        </Content>
         <AppFooter />
       </React.Fragment>
     );

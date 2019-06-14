@@ -49,7 +49,6 @@ export default `
     text-decoration: none;
     color: ${Colors.h};
   }
-  .gatsby-resp-image-link,
   img {
     width: 100%;
   }
@@ -81,8 +80,9 @@ export default `
 
   .Dota-logo {
     animation: Dota-logo-spin infinite 20s linear;
-    height: 20vmin;
+    height: 15vmin;
     pointer-events: none;
+    margin-bottom: 30px;
   }
   
   @keyframes Dota-logo-spin {
