@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { styles } from "../../containers/styles";
-import dota from "../../images/dota.svg";
+import dota from "../../static/images/dota.svg";
 
 class AppHeader extends Component {
   render() {

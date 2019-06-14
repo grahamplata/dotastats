@@ -1,7 +1,7 @@
 import React from "react";
-import reactLogo from "../../images/react.svg";
-import reduxLogo from "../../images/redux.svg";
-import dotaLogo from "../../images/dota.svg";
+import reactLogo from "../../static/images/react.svg";
+import reduxLogo from "../../static/images/redux.svg";
+import dotaLogo from "../../static/images/dota.svg";
 
 const Footer = () => (
   <footer className="footer">

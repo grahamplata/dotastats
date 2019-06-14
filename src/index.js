@@ -4,8 +4,8 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import reducers from "./reducers";
-import "./css/dota2minimapheroes.css";
-import "./css/index.css";
+import "./styles/dota2minimapheroes.css";
+import "./styles/index.css";
 import App from "./containers/App";
 import registerServiceWorker from "./registerServiceWorker";
 

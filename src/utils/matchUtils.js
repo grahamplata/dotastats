@@ -1,5 +1,5 @@
-import { heroes } from "../static/heroes";
-import { games } from "../static/games";
+import { heroes } from "../static/data/heroes";
+import { games } from "../static/data/games";
 
 export const matchUtils = () => {
   console.log("lodaed");
