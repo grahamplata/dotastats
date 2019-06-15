@@ -6,8 +6,7 @@ export default styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 14px;
-  padding: 10px;
+  font-size: 12px;
   color: ${Colors.background};
   background-color: ${Colors.header};
 
@@ -17,19 +16,20 @@ export default styled.footer`
     flex-direction: row;
     ${media.phone`
       visibility: hidden;
+      max-height: 20px;
     `}
   }
 
   .react-logo {
-    max-width: 70px;
+    max-width: 40px;
   }
 
   .redux-logo {
-    max-width: 50px;
+    max-width: 30px;
   }
 
   .dota-logo {
-    padding-left: 7px;
-    max-width: 50px;
+    padding-left: 6px;
+    max-width: 30px;
   }
 `;

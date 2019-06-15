@@ -12,6 +12,8 @@ export const Colors = {
   input: changeColor(base, 0.03),
   background,
   header,
+  header2: changeColor(base, 0.7),
+  header3: changeColor(base, 0.8),
   linkHover,
   link: changeColor(base, 0.35),
   subNav: changeColor(base, 0.2)

@@ -56,19 +56,4 @@ export default `
   img {
     width: 100%;
   }
-
-  .Dota-logo {
-    animation: Dota-logo-spin infinite 20s linear;
-    height: 15vmin;
-    pointer-events: none;
-    margin-bottom: 30px;
-  }
-  
-  @keyframes Dota-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
 `;

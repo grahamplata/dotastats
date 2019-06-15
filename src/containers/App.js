@@ -4,7 +4,8 @@ import { Spring } from "react-spring";
 import AppFooter from "../components/AppFooter";
 import Content from "../styles/containers/Content";
 import Container from "../styles/containers/Container";
-import { Input } from "../styles/containers/Form";
+import Submission from "../styles/containers/Submission.js";
+import { SubmitInput, Input } from "../styles/containers/Form";
 import Card from "../components/Card";
 import AppHeader from "../components/AppHeader";
 import Table from "../components/Table";
@@ -36,16 +37,16 @@ class App extends Component {
         <AppHeader />
         <Content>
           {this.props.profile == null || this.props.isFetching === true ? (
-            <div>
+            <Submission>
               <form onSubmit={this.handleSubmit}>
                 <Input
                   type="text"
                   value={this.state.input}
                   onChange={this.handleChange}
                 />
-                <input type="submit" value="Submit" />
+                <SubmitInput type="submit" value="Submit" />
               </form>
-            </div>
+            </Submission>
           ) : (
             <React.Fragment />
           )}
