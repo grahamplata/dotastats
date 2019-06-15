@@ -2,11 +2,10 @@ import { css } from "styled-components";
 
 const sizes = {
   monitor: 1600,
-  desktop: 992,
-  tablet: 700,
-  phone: 425,
-  tiny: 340,
-  none: 320
+  desktop: 1024,
+  tablet: 768,
+  phone: 580,
+  tiny: 340
 };
 
 export default Object.keys(sizes).reduce((acc, label) => {

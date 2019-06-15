@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "../utils/media";
 
 export const Content = styled.div`
   flex: 1;
@@ -9,5 +10,14 @@ export const Content = styled.div`
 `;
 
 export const CardWrapper = styled.div`
-  width: 50%;
+  min-width: 35%;
+  ${media.tablet`
+    min-width: 35%;
+  `}
+  ${media.tablet`
+    min-width: 70%;
+  `}
+  ${media.phone`
+    min-width: 100%;
+  `}
 `;
