@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Spring } from "react-spring";
 import AppFooter from "../components/AppFooter";
-import Content from "../styles/containers/Content";
+import { Content, CardWrapper } from "../styles/containers/Content";
 import Container from "../styles/containers/Container";
 import Submission from "../styles/containers/Submission.js";
 import { SubmitInput, Input } from "../styles/containers/Form";
@@ -48,29 +48,33 @@ class App extends Component {
               </form>
             </Submission>
           ) : (
-            <React.Fragment />
+            <Submission>
+              <></>
+            </Submission>
           )}
-          {this.props.profile != null ? (
-            <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
-              {animation => (
-                <Card
-                  style={animation}
-                  data={this.props.profile}
-                  winrate={this.props.winRate}
-                  heroes={this.props.recentMatches}
-                />
-              )}
-            </Spring>
-          ) : !this.props.isFetching ? (
-            <React.Fragment />
-          ) : (
-            <React.Fragment />
-          )}
-          {this.props.recentMatches != null ? (
-            <Table matches={this.props.recentMatches} />
-          ) : (
-            <React.Fragment />
-          )}
+          <CardWrapper>
+            {this.props.profile != null ? (
+              <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                {animation => (
+                  <Card
+                    style={animation}
+                    data={this.props.profile}
+                    winrate={this.props.winRate}
+                    heroes={this.props.recentMatches}
+                  />
+                )}
+              </Spring>
+            ) : !this.props.isFetching ? (
+              <React.Fragment />
+            ) : (
+              <React.Fragment />
+            )}
+            {this.props.recentMatches != null ? (
+              <Table matches={this.props.recentMatches} />
+            ) : (
+              <React.Fragment />
+            )}
+          </CardWrapper>
         </Content>
         <AppFooter />
       </Container>

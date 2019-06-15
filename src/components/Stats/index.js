@@ -1,16 +1,17 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 class Stats extends Component {
   render() {
     return (
       <div>
-        <p>
+        <Wins>
           Wins: <button>{this.props.wins}</button>
-        </p>
-        <p>
+        </Wins>
+        <Losses>
           Losses: <button>{this.props.losses}</button>
-        </p>
-        <p>
+        </Losses>
+        <Winrate>
           Winrate:{" "}
           <button>
             {Math.floor(
@@ -18,27 +19,25 @@ class Stats extends Component {
             )}
             %
           </button>
-        </p>
+        </Winrate>
       </div>
     );
   }
 }
 
-export default Stats;
+const Wins = styled.p`
+  fontweight: bold;
+  color: rgb(102, 187, 106);
+`;
 
-const styles = {
-  stats: {
-    display: "flex",
-    color: "white",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    fontWeight: "bold",
-    width: "100%",
-    height: "100%",
-    paddingLeft: 5,
-    paddingRight: 5
-  },
-  wins: { color: "rgb(102, 187, 106)" },
-  losses: { color: "rgb(255, 76, 76)" },
-  winrate: { color: "rgb(229, 193, 0)" }
-};
+const Losses = styled.p`
+  fontweight: bold;
+  color: rgb(255, 76, 76);
+`;
+
+const Winrate = styled.p`
+  fontweight: bold;
+  color: rgb(229, 193, 0);
+`;
+
+export default Stats;

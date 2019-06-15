@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Spring } from "react-spring";
+import styled from "styled-components";
 import rank0 from "../../static/images/ranks/rank_icon_0.png";
 import rank1 from "../../static/images/ranks/rank_icon_1.png";
 import rank2 from "../../static/images/ranks/rank_icon_2.png";
@@ -14,7 +16,6 @@ import star2 from "../../static/images/ranks/rank_star_2.png";
 import star3 from "../../static/images/ranks/rank_star_3.png";
 import star4 from "../../static/images/ranks/rank_star_4.png";
 import star5 from "../../static/images/ranks/rank_star_5.png";
-import { Spring } from "react-spring";
 
 const stars = [star1, star2, star3, star4, star5];
 const ranks = [
@@ -45,12 +46,12 @@ class Ranking extends Component {
   }
   render() {
     return (
-      <div>
-        <div>
+      <Hero>
+        <PaddedDiv>
           <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
             {styles => (
-              <div>
-                <img
+              <div style={styles}>
+                <RankingStyle
                   src={
                     this.state.ranktier == null ? (
                       <React.Fragment />
@@ -65,8 +66,8 @@ class Ranking extends Component {
           </Spring>
           <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
             {styles => (
-              <div>
-                <img
+              <div style={styles}>
+                <Stars
                   src={
                     this.state.ranktier == null
                       ? ranks[0]
@@ -77,28 +78,30 @@ class Ranking extends Component {
               </div>
             )}
           </Spring>
-        </div>
-      </div>
+        </PaddedDiv>
+      </Hero>
     );
   }
 }
 
 export default Ranking;
 
-const styling = {
-  hero: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start"
-  },
-  ranking: {
-    position: "absolute",
-    maxWidth: "80px",
-    zIndex: "1"
-  },
-  stars: {
-    maxWidth: "80px",
-    zIndex: "3"
-  }
-};
+const Hero = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+`;
+const RankingStyle = styled.img`
+  position: absolute;
+  max-width: 80px;
+  z-index: 1;
+`;
+const Stars = styled.div`
+  max-width: 80px;
+  z-index: 3;
+`;
+
+const PaddedDiv = styled.div`
+  padding-top: 15px;
+`;

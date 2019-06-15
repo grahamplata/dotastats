@@ -7,7 +7,12 @@ import Stats from "../Stats";
 import Ranking from "../Ranking";
 import UserProfile from "../UserProfile";
 import CardFooter from "../CardFooter";
-// import { styles } from "./styles";
+// styles
+import CardContainer from "../../styles/containers/Card";
+import Column from "../../styles/containers/Column";
+import Row from "../../styles/containers/Row";
+import PlayerRow from "../../styles/containers/PlayerRow";
+import StatsRow from "../../styles/containers/StatsRow";
 
 class Card extends Component {
   componentWillMount() {
@@ -16,9 +21,9 @@ class Card extends Component {
   }
   render() {
     return (
-      <div>
-        <div>
-          <div>
+      <CardContainer>
+        <Column>
+          <PlayerRow>
             {this.props != null ? (
               <UserProfile
                 community={this.props.data.profile.profileurl}
@@ -29,8 +34,8 @@ class Card extends Component {
               <Loader />
             )}
             <Ranking ranktier={this.props.data.rank_tier} />
-          </div>
-          <div>
+          </PlayerRow>
+          <StatsRow>
             {this.props.heroes != null ? (
               <Stats
                 wins={this.props.winrate.win}
@@ -47,12 +52,12 @@ class Card extends Component {
             ) : (
               <Loader />
             )}
-          </div>
-          <div>
+          </StatsRow>
+          <Row>
             <CardFooter />
-          </div>
-        </div>
-      </div>
+          </Row>
+        </Column>
+      </CardContainer>
     );
   }
 }

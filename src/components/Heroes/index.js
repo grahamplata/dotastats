@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Trail } from "react-spring";
+import styled from "styled-components";
 
 class Heroes extends Component {
   constructor(props) {
@@ -8,9 +9,8 @@ class Heroes extends Component {
   }
   render() {
     return (
-      <div>
-        <p>Estimated MMR: {this.state.mmr || 0}</p>
-        <div>
+      <>
+        <Items>
           <Trail
             from={{ opacity: 0 }}
             to={{ opacity: 1 }}
@@ -25,19 +25,15 @@ class Heroes extends Component {
                 />
               ))}
           </Trail>
-        </div>
-      </div>
+        </Items>
+      </>
     );
   }
 }
 
-export default Heroes;
+const Items = styled.div`
+  display: flex;
+  justifycontent: center;
+`;
 
-const styles = {
-  p: {
-    fontWeight: "bold",
-    display: "flex",
-    justifyContent: "center"
-  },
-  items: { display: "flex", justifyContent: "center" }
-};
+export default Heroes;

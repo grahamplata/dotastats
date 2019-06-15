@@ -1,10 +1,6 @@
 import { heroes } from "../static/data/heroes";
 import { games } from "../static/data/games";
 
-export const matchUtils = () => {
-  console.log("lodaed");
-};
-
 export const setLobbyType = lobby_type => {
   switch (lobby_type) {
     case 0:

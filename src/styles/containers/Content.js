@@ -1,10 +1,13 @@
 import styled from "styled-components";
-import { Colors } from "../variables";
 
-export default styled.div`
+export const Content = styled.div`
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: ${Colors.background};
+`;
+
+export const CardWrapper = styled.div`
+  width: 50%;
 `;
