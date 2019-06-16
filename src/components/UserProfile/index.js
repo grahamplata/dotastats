@@ -23,13 +23,13 @@ const ProfileStyle = styled.img`
   border: 2px;
   color: white;
   margin-top: 5px;
-  max-width: 60px;
+  max-width: 80px;
   border-radius: 50%;
   border-style: solid;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 `;
 
-const Username = styled.h3`
+const Username = styled.h2`
   margin-left: 5px;
 `;
 export default UserProfile;

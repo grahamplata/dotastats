@@ -4,38 +4,49 @@ import styled from "styled-components";
 class Stats extends Component {
   render() {
     return (
-      <div>
-        <Wins>
-          Wins: <button>{this.props.wins}</button>
-        </Wins>
-        <Losses>
-          Losses: <button>{this.props.losses}</button>
-        </Losses>
-        <Winrate>
-          Winrate:{" "}
-          <button>
+      <Statswrapper>
+        <p>
+          <White>Wins: </White>
+          <Wins>{this.props.wins}</Wins>
+        </p>
+        <p>
+          <White>Losses: </White>
+          <Losses>{this.props.losses}</Losses>
+        </p>
+        <p>
+          <White>Winrate: </White>
+          <Winrate>
             {Math.floor(
               (this.props.wins / (this.props.losses + this.props.wins)) * 100
             )}
             %
-          </button>
-        </Winrate>
-      </div>
+          </Winrate>
+        </p>
+      </Statswrapper>
     );
   }
 }
 
-const Wins = styled.p`
-  fontweight: bold;
+const Statswrapper = styled.div`
+  text-align: right;
+`;
+
+const White = styled.strong`
+  font-weight: bold;
+  color: white;
+`;
+
+const Wins = styled.strong`
+  font-weight: bold;
   color: rgb(102, 187, 106);
 `;
 
-const Losses = styled.p`
-  fontweight: bold;
+const Losses = styled.strong`
+  font-weight: bold;
   color: rgb(255, 76, 76);
 `;
 
-const Winrate = styled.p`
+const Winrate = styled.strong`
   fontweight: bold;
   color: rgb(229, 193, 0);
 `;

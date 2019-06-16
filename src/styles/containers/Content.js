@@ -10,9 +10,9 @@ export const Content = styled.div`
 `;
 
 export const CardWrapper = styled.div`
-  min-width: 35%;
+  min-width: 30%;
   ${media.tablet`
-    min-width: 35%;
+    min-width: 30%;
   `}
   ${media.tablet`
     min-width: 70%;

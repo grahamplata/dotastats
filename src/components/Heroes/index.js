@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Trail } from "react-spring";
 import styled from "styled-components";
+import Column from "../../styles/containers/Column";
 
 class Heroes extends Component {
   constructor(props) {
@@ -9,24 +9,14 @@ class Heroes extends Component {
   }
   render() {
     return (
-      <>
+      <Column>
+        <p>Recently Played</p>
         <Items>
-          <Trail
-            from={{ opacity: 0 }}
-            to={{ opacity: 1 }}
-            keys={this.state.heroes.slice(0, 3).map(item => item.match_id)}
-          >
-            {this.state.heroes
-              .slice(0, 3)
-              .map(item => styles => (
-                <i
-                  key={item.match_id}
-                  className={`d2mh hero-${item.hero_id}`}
-                />
-              ))}
-          </Trail>
+          {this.state.heroes.slice(0, 3).map(item => (
+            <i key={item.match_id} className={`d2mh hero-${item.hero_id}`} />
+          ))}
         </Items>
-      </>
+      </Column>
     );
   }
 }

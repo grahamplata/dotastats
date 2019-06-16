@@ -6,11 +6,9 @@ import Loader from "../Loader";
 import Stats from "../Stats";
 import Ranking from "../Ranking";
 import UserProfile from "../UserProfile";
-import CardFooter from "../CardFooter";
 // styles
 import CardContainer from "../../styles/containers/Card";
 import Column from "../../styles/containers/Column";
-import Row from "../../styles/containers/Row";
 import PlayerRow from "../../styles/containers/PlayerRow";
 import StatsRow from "../../styles/containers/StatsRow";
 
@@ -34,28 +32,17 @@ class Card extends Component {
               <Loader />
             )}
             <Ranking ranktier={this.props.data.rank_tier} />
+            <StatsRow>
+              {this.props.heroes != null ? (
+                <Stats
+                  wins={this.props.winrate.win}
+                  losses={this.props.winrate.lose}
+                />
+              ) : (
+                <Loader />
+              )}
+            </StatsRow>
           </PlayerRow>
-          <StatsRow>
-            {this.props.heroes != null ? (
-              <Stats
-                wins={this.props.winrate.win}
-                losses={this.props.winrate.lose}
-              />
-            ) : (
-              <Loader />
-            )}
-            {this.props.heroes != null ? (
-              <Heroes
-                mmr={this.props.data.solo_competitive_rank}
-                heroes={this.props.heroes}
-              />
-            ) : (
-              <Loader />
-            )}
-          </StatsRow>
-          <Row>
-            <CardFooter />
-          </Row>
         </Column>
       </CardContainer>
     );
