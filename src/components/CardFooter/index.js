@@ -5,7 +5,7 @@ var today = new Date(),
     today.getMonth() + 1 + "-" + today.getDate() + "-" + today.getFullYear();
 
 const CardFooter = props => (
-  <p style={{ opacity: "0.6" }}>
+  <p>
     <small>Last updated: {date}</small>
   </p>
 );

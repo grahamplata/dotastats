@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Spring } from "react-spring";
-import Card from "../components/Card";
 import AppFooter from "../components/AppFooter";
+import { Content, CardWrapper } from "../styles/containers/Content";
+import Container from "../styles/containers/Container";
+import Submission from "../styles/containers/Submission.js";
+import { SubmitInput, Input } from "../styles/containers/Form";
+import Card from "../components/Card";
 import AppHeader from "../components/AppHeader";
 import Table from "../components/Table";
 import * as actionCreators from "../actions";
-import injectStyle from "../utils/injectStyle";
-import { styles, keyframesStyle } from "./styles";
-
-injectStyle(keyframesStyle);
 
 class App extends Component {
   constructor(props) {
@@ -33,49 +33,51 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Container>
         <AppHeader />
-        <div style={styles.container}>
+        <Content>
           {this.props.profile == null || this.props.isFetching === true ? (
-            <div style={styles.cards}>
-              <h3>Enter your 32bit Steam id Below</h3>
-              <form style={styles.form} onSubmit={this.handleSubmit}>
-                <input
-                  style={styles.formInput}
+            <Submission>
+              <form onSubmit={this.handleSubmit}>
+                <Input
                   type="text"
                   value={this.state.input}
                   onChange={this.handleChange}
                 />
-                <input style={styles.formButton} type="submit" value="Submit" />
+                <SubmitInput type="submit" value="Submit" />
               </form>
-            </div>
+            </Submission>
           ) : (
-            <React.Fragment />
+            <Submission>
+              <></>
+            </Submission>
           )}
-          {this.props.profile != null ? (
-            <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
-              {animation => (
-                <Card
-                  style={animation}
-                  data={this.props.profile}
-                  winrate={this.props.winRate}
-                  heroes={this.props.recentMatches}
-                />
-              )}
-            </Spring>
-          ) : !this.props.isFetching ? (
-            <React.Fragment />
-          ) : (
-            <React.Fragment />
-          )}
-          {this.props.recentMatches != null ? (
-            <Table matches={this.props.recentMatches} />
-          ) : (
-            <React.Fragment />
-          )}
-        </div>
+          <CardWrapper>
+            {this.props.profile != null ? (
+              <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                {animation => (
+                  <Card
+                    style={animation}
+                    data={this.props.profile}
+                    winrate={this.props.winRate}
+                    heroes={this.props.recentMatches}
+                  />
+                )}
+              </Spring>
+            ) : !this.props.isFetching ? (
+              <React.Fragment />
+            ) : (
+              <React.Fragment />
+            )}
+            {this.props.recentMatches != null ? (
+              <Table matches={this.props.recentMatches} />
+            ) : (
+              <React.Fragment />
+            )}
+          </CardWrapper>
+        </Content>
         <AppFooter />
-      </React.Fragment>
+      </Container>
     );
   }
 }

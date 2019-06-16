@@ -1,71 +1,55 @@
 import React, { Component } from "react";
 import moment from "moment";
 import "moment-duration-format";
+import styled from "styled-components";
 import {
-  matchUtils,
   setGameType,
   setLobbyType,
   setSkill,
   setPlayerTeam,
   setMatchWinner
 } from "../../utils/matchUtils.js";
-import { styles } from "./styles";
 
 class Table extends Component {
-  componentDidMount() {
-    matchUtils();
-  }
-
   createRows = props => {
     let table = [];
     let matches = props.matches;
     matches.slice(0, 8).forEach((match, index) => {
       table.push(
-        <tr key={index} style={styles.tableCenter}>
-          <td style={styles.tableLeft}>
-            <div style={styles.tableHeight}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row"
-                }}
-              >
+        <TableCenter key={index}>
+          <TableLeft>
+            <TableHeight>
+              <StatsRow>
                 <i className={`d2mh hero-${match.hero_id}`} />
-                <div style={[{ display: "flex", flexDirection: "column" }]}>
+                <StatsColumn>
                   <p>
                     <strong>{match.match_id}</strong>
-                  </p>
-                  <p>
+                    <br />
                     <small>{setSkill(match.skill)}</small>
                   </p>
-                </div>
-              </div>
-            </div>
-          </td>
+                </StatsColumn>
+              </StatsRow>
+            </TableHeight>
+          </TableLeft>
           <td>
-            <div style={styles.tableHeight}>
+            <TableHeight>
               <p>
                 <strong>
                   {setMatchWinner(match.radiant_win, match.player_slot)}
                 </strong>
-              </p>
-              <p>
+                <br />
                 <small>as {setPlayerTeam(match.player_slot)}</small>
               </p>
-              {/* <p>
-                <small>{moment.unix(match.start_time).fromNow()}</small>
-              </p> */}
-            </div>
+            </TableHeight>
           </td>
           <td>
-            <div style={styles.tableHeight}>
+            <TableHeight>
               <p>
                 <strong>{setGameType(match.game_mode)}</strong>
-              </p>
-              <p>
+                <br />
                 <small>{setLobbyType(match.lobby_type)}</small>
               </p>
-            </div>
+            </TableHeight>
           </td>
           <td>
             <small>
@@ -79,7 +63,7 @@ class Table extends Component {
               {match.kills}/{match.deaths}/{match.assists}
             </small>
           </td>
-        </tr>
+        </TableCenter>
       );
     });
     return table;
@@ -87,20 +71,55 @@ class Table extends Component {
 
   render() {
     return (
-      <table style={styles.tableWrapper}>
+      <TableWrapper>
         <thead>
-          <tr style={styles.tableCenter}>
-            <th style={styles.tableLeft}>Match</th>
+          <TableCenter>
+            <TableLeft>Match</TableLeft>
             <th>Result</th>
             <th>Type</th>
             <th>Duration</th>
             <th>KDA</th>
-          </tr>
+          </TableCenter>
         </thead>
         <tbody>{this.createRows(this.props)}</tbody>
-      </table>
+      </TableWrapper>
     );
   }
 }
+
+export const TableWrapper = styled.table`
+  width: 100%;
+  align-text: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+`;
+
+export const TableCenter = styled.tr`
+  text-align: center;
+`;
+
+export const TableLeft = styled.th`
+  text-align: left;
+  padding-bottom: 1em;
+  padding-right: 1em;
+`;
+
+export const TableHeight = styled.div`
+  line-height: 15px;
+`;
+
+export const StatsRow = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const StatsColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export default Table;

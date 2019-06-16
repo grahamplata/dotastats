@@ -1,9 +1,5 @@
-import { heroes } from "../static/heroes";
-import { games } from "../static/games";
-
-export const matchUtils = () => {
-  console.log("lodaed");
-};
+import { heroes } from "../static/data/heroes";
+import { games } from "../static/data/games";
 
 export const setLobbyType = lobby_type => {
   switch (lobby_type) {

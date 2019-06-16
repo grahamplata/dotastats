@@ -1,43 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
+import styled from "styled-components";
 
-class UserProfile extends Component {
-  render() {
-    return (
-      <div style={styles.playerRow}>
-        <a href={this.props.community}>
-          <img style={styles.profile} src={this.props.profile} alt="" />
-        </a>
-        <div style={{ paddingLeft: 5 }}>
-          <h3>
-            <a style={styles.link} href={this.props.community}>
-              {this.props.username}
-            </a>
-          </h3>
-        </div>
-      </div>
-    );
-  }
+function UserProfile(props) {
+  return (
+    <PlayerRowStyle>
+      <a href={props.community}>
+        <ProfileStyle src={props.profile} alt={props.profile} />
+      </a>
+      <Username>{props.username}</Username>
+    </PlayerRowStyle>
+  );
 }
 
-export default UserProfile;
+const PlayerRowStyle = styled.div`
+  display: flex;
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+`;
 
-const styles = {
-  profile: {
-    border: "2px",
-    borderStyle: "solid",
-    color: "white",
-    borderRadius: "50%",
-    maxWidth: "60px",
-    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
-  },
-  playerRow: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between"
-  },
-  link: {
-    textDecoration: "none",
-    color: "white"
-  }
-};
+const ProfileStyle = styled.img`
+  border: 2px;
+  color: white;
+  margin-top: 5px;
+  max-width: 80px;
+  border-radius: 50%;
+  border-style: solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+`;
+
+const Username = styled.h2`
+  margin-left: 5px;
+`;
+export default UserProfile;

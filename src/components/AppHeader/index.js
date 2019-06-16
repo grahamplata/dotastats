@@ -1,20 +1,15 @@
-import React, { Component } from "react";
-import { styles } from "../../containers/styles";
-import dota from "../../images/dota.svg";
+import React from "react";
+import Header from "../../styles/containers/Header";
+import { Rotate } from "../../styles/containers/Rotate";
+import dota from "../../static/images/dota.svg";
 
-class AppHeader extends Component {
-  render() {
-    return (
-      <header style={styles.appHeader}>
-        <img src={dota} style={styles.applogo} alt="logo" />
-        <h1 style={styles.appTitle}>
-          {process.env.REACT_APP_OPENDOTA != null
-            ? "Dota Stats"
-            : "Api Key Not Present"}
-        </h1>
-      </header>
-    );
-  }
+function AppHeader() {
+  return (
+    <Header>
+      <Rotate src={dota} alt="logo" />
+      <h1>Dota Stats</h1>
+    </Header>
+  );
 }
 
 export default AppHeader;

@@ -6,8 +6,11 @@ import Loader from "../Loader";
 import Stats from "../Stats";
 import Ranking from "../Ranking";
 import UserProfile from "../UserProfile";
-import CardFooter from "../CardFooter";
-import { styles } from "./styles";
+// styles
+import CardContainer from "../../styles/containers/Card";
+import Column from "../../styles/containers/Column";
+import PlayerRow from "../../styles/containers/PlayerRow";
+import StatsRow from "../../styles/containers/StatsRow";
 
 class Card extends Component {
   componentWillMount() {
@@ -16,9 +19,9 @@ class Card extends Component {
   }
   render() {
     return (
-      <div style={styles.card}>
-        <div style={styles.columns}>
-          <div style={styles.playerRow}>
+      <CardContainer>
+        <Column>
+          <PlayerRow>
             {this.props != null ? (
               <UserProfile
                 community={this.props.data.profile.profileurl}
@@ -29,30 +32,19 @@ class Card extends Component {
               <Loader />
             )}
             <Ranking ranktier={this.props.data.rank_tier} />
-          </div>
-          <div style={styles.statsrow}>
-            {this.props.heroes != null ? (
-              <Stats
-                wins={this.props.winrate.win}
-                losses={this.props.winrate.lose}
-              />
-            ) : (
-              <Loader />
-            )}
-            {this.props.heroes != null ? (
-              <Heroes
-                mmr={this.props.data.solo_competitive_rank}
-                heroes={this.props.heroes}
-              />
-            ) : (
-              <Loader />
-            )}
-          </div>
-          <div style={styles.row}>
-            <CardFooter />
-          </div>
-        </div>
-      </div>
+            <StatsRow>
+              {this.props.heroes != null ? (
+                <Stats
+                  wins={this.props.winrate.win}
+                  losses={this.props.winrate.lose}
+                />
+              ) : (
+                <Loader />
+              )}
+            </StatsRow>
+          </PlayerRow>
+        </Column>
+      </CardContainer>
     );
   }
 }

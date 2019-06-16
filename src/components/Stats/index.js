@@ -1,44 +1,54 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 class Stats extends Component {
   render() {
     return (
-      <div style={{ fontWeight: "bold" }}>
+      <Statswrapper>
         <p>
-          Wins: <button style={styles.wins}>{this.props.wins}</button>
+          <White>Wins: </White>
+          <Wins>{this.props.wins}</Wins>
         </p>
         <p>
-          Losses: <button style={styles.losses}>{this.props.losses}</button>
+          <White>Losses: </White>
+          <Losses>{this.props.losses}</Losses>
         </p>
         <p>
-          Winrate:{" "}
-          <button style={styles.winrate}>
+          <White>Winrate: </White>
+          <Winrate>
             {Math.floor(
               (this.props.wins / (this.props.losses + this.props.wins)) * 100
             )}
             %
-          </button>
+          </Winrate>
         </p>
-      </div>
+      </Statswrapper>
     );
   }
 }
 
-export default Stats;
+const Statswrapper = styled.div`
+  text-align: right;
+`;
 
-const styles = {
-  stats: {
-    display: "flex",
-    color: "white",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    fontWeight: "bold",
-    width: "100%",
-    height: "100%",
-    paddingLeft: 5,
-    paddingRight: 5
-  },
-  wins: { color: "rgb(102, 187, 106)" },
-  losses: { color: "rgb(255, 76, 76)" },
-  winrate: { color: "rgb(229, 193, 0)" }
-};
+const White = styled.strong`
+  font-weight: bold;
+  color: white;
+`;
+
+const Wins = styled.strong`
+  font-weight: bold;
+  color: rgb(102, 187, 106);
+`;
+
+const Losses = styled.strong`
+  font-weight: bold;
+  color: rgb(255, 76, 76);
+`;
+
+const Winrate = styled.strong`
+  fontweight: bold;
+  color: rgb(229, 193, 0);
+`;
+
+export default Stats;

@@ -1,13 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
+import { Rotate } from "../../styles/containers/Rotate";
+import dota from "../../static/images/dota.svg";
 
-class Loader extends Component {
-  render() {
-    return (
-      <div>
-        <p style={{ color: "white" }}>Loading...</p>
-      </div>
-    );
-  }
-}
+const Loader = () => <Rotate src={dota} alt="logo" />;
 
 export default Loader;
